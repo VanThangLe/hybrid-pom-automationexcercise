@@ -1,0 +1,20 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name = "AutomationExercise" parallel = "tests" thread-count = "1">
+	
+	<parameter name = "appUrl" value = "https://automationexercise.com/" />
+
+	<listeners>
+		<listener class-name = "commons.MethodListener" />
+		<listener class-name = "reportConfig.ExtentListener" />
+	</listeners>
+
+	<test name = "Run on CHROME">
+		<parameter name = "browserName" value = "chrome" />
+		<classes>
+			<class name = "com.automationexcercise.testcase.Testcase" />
+		</classes>
+	</test>
+	
+</suite>
