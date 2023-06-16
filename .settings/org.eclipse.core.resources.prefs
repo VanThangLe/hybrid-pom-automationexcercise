@@ -1,10 +1,13 @@
 eclipse.preferences.version=1
 encoding//actions/commons/BasePage.java=UTF-8
 encoding//actions/commons/BaseTest.java=UTF-8
+encoding//actions/pageObjects/automationexercise/AccountCreatedPageObject.java=UTF-8
+encoding//actions/pageObjects/automationexercise/DeleteAccountPageObject.java=UTF-8
 encoding//actions/pageObjects/automationexercise/HomePageObject.java=UTF-8
-encoding//actions/pageObjects/automationexercise/LoginPageObject.java=UTF-8
 encoding//actions/pageObjects/automationexercise/PageGenerator.java=UTF-8
 encoding//actions/pageObjects/automationexercise/RegisterPageObject.java=UTF-8
+encoding//actions/pageObjects/automationexercise/SignupLoginPageObject.java=UTF-8
+encoding//actions/pageObjects/automationexercise/SignupPageObject.java=UTF-8
 encoding//interfaces/pageUIs/automationexercise/BasePageUI.java=UTF-8
 encoding//resources/runAutomationExercise.xml=UTF-8
 encoding//testcases/com/automationexercise/testcase/TestCase.java=UTF-8

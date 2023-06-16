@@ -7,8 +7,11 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import commons.BaseTest;
+import pageObjects.automationexercise.AccountCreatedPageObject;
+import pageObjects.automationexercise.DeleteAccountPageObject;
 import pageObjects.automationexercise.HomePageObject;
-import pageObjects.automationexercise.LoginPageObject;
+import pageObjects.automationexercise.SignupLoginPageObject;
+import pageObjects.automationexercise.SignupPageObject;
 import pageObjects.automationexercise.PageGenerator;
 import pageObjects.automationexercise.RegisterPageObject;
 
@@ -16,7 +19,12 @@ public class TestCase extends BaseTest {
 	WebDriver driver;
 	RegisterPageObject registerPage;
 	HomePageObject homePage;
-	LoginPageObject loginPage;
+	SignupLoginPageObject signupLoginPage;
+	SignupPageObject signupPage;
+	AccountCreatedPageObject accountCreatedPage;
+	DeleteAccountPageObject deleteAccountPage;
+	
+	String username, email, password, day, month, year, last_name, first_name, company, address, address2, country, state, city, zipcode, mobile_number;
 	
 	@Parameters({ "browserName", "appUrl" })
 	@BeforeClass
@@ -24,11 +32,93 @@ public class TestCase extends BaseTest {
 		log.info("Pre-condition - Open browser '" + browserName + "'and navigate to '" + appUrl + "'");
 		driver = getBrowserDriver(browserName, appUrl);
 		homePage = PageGenerator.getHomePage(driver);
+		
+		username = "Automation FC";
+		email = "automation@gmail.com";
+		password = "12345678";
+		day = "1";
+		month = "January";
+		year = "2001";
+		last_name = "Automation";
+		first_name = "FC";
+		company = "Automation FC";
+		address = "New York";
+		address2 = "Washington, D.C.";
+		country = "United States";
+		state = "New York";
+		city = "New York";
+		zipcode = "100000";
+		mobile_number = "369258147";
 	}
 	
 	@Test(description = "Test Case 1: Register User")
 	public void Testcase_01() {
-		log.info("");
+		log.info("Testcase_01 - Step 01: Click on 'Signup / Login' button");
+		homePage.openMenuPage(driver, "Signup / Login");
+		signupLoginPage = PageGenerator.getSignupLoginPage(driver);
+		
+		log.info("Testcase_01 - Step 02: Verify 'New User Signup!' is visible");
+		verifyTrue(signupLoginPage.isLabelFormDisplayed(driver, "New User Signup!"));
+		
+		log.info("Testcase_01 - Step 03: Enter name and email address");
+		signupLoginPage.enterToTextboxByIDName(driver, "signup-name", username);
+		signupLoginPage.enterToTextboxByIDName(driver, "signup-email", email);
+		
+		log.info("Testcase_01 - Step 04: Click 'Signup' button");
+		signupLoginPage.clickToButtonByLabel(driver, "signup-button");
+		signupPage = PageGenerator.getSignupPage(driver);
+		
+		log.info("Testcase_01 - Step 05: Verify that 'ENTER ACCOUNT INFORMATION' is visible");
+		verifyTrue(signupPage.isLabelFormDisplayed(driver, "Enter Account Information"));
+		
+		log.info("Testcase_01 - Step 06: Fill details: Title, Name, Email, Password, Date of birth");
+		signupPage.clickToRadioButtonByID(driver, "uniform-id_gender1");
+		signupPage.enterToTextboxByIDName(driver, "name", username);
+		signupPage.enterToTextboxByIDName(driver, "password", password);
+		signupPage.selectItemInDropdownByName(driver, "days", day);
+		signupPage.selectItemInDropdownByName(driver, "months", month);
+		signupPage.selectItemInDropdownByName(driver, "years", year);
+		
+		log.info("Testcase_01 - Step 07: Select checkbox 'Sign up for our newsletter!'");
+		signupPage.clickToCheckboxByID(driver, "newsletter");
+		
+		log.info("Testcase_01 - Step 08: Select checkbox 'Receive special offers from our partners!'");
+		signupPage.clickToCheckboxByID(driver, "optin");
+		
+		log.info("Testcase_01 - Step 09: Fill details: First name, Last name, Company, Address, Address2, Country, State, City, Zipcode, Mobile Number");
+		signupPage.enterToTextboxByIDName(driver, "first_name", last_name);
+		signupPage.enterToTextboxByIDName(driver, "last_name", first_name);
+		signupPage.enterToTextboxByIDName(driver, "company", company);
+		signupPage.enterToTextboxByIDName(driver, "address", address);
+		signupPage.enterToTextboxByIDName(driver, "address2", address2);
+		signupPage.selectItemInDropdownByName(driver, "country", country);
+		signupPage.enterToTextboxByIDName(driver, "state", state);
+		signupPage.enterToTextboxByIDName(driver, "city", city);
+		signupPage.enterToTextboxByIDName(driver, "zipcode", zipcode);
+		signupPage.enterToTextboxByIDName(driver, "mobile_number", mobile_number);
+		
+		log.info("Testcase_01 - Step 10: Click 'Create Account button'");
+		signupPage.clickToButtonByLabel(driver, "create-account");
+		accountCreatedPage = PageGenerator.getAccountCreatedPage(driver);
+		
+		log.info("Testcase_01 - Step 11: Verify that 'ACCOUNT CREATED!' is visible");
+		verifyTrue(accountCreatedPage.isLabelFormDisplayed(driver, "ACCOUNT CREATED!"));
+		
+		log.info("Testcase_01 - Step 12: Click 'Continue' button");
+		accountCreatedPage.clickToButtonByLabel(driver, "continue-button");
+		homePage = PageGenerator.getHomePage(driver);
+		
+		log.info("Testcase_01 - Step 13: Verify that 'Logged in as username' is visible");
+		verifyTrue(homePage.isLabelFormDisplayed(driver, "Logged in as " + username));
+		
+		log.info("Testcase_01 - Step 14: Click 'Delete Account' button");
+		homePage.openMenuPage(driver, "Delete Account");
+		deleteAccountPage = PageGenerator.getDeleteAccountPage(driver);
+		
+		log.info("Testcase_01 - Step 15: Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button");
+		verifyTrue(deleteAccountPage.isLabelFormDisplayed(driver, "ACCOUNT DELETED!"));
+		deleteAccountPage.clickToButtonByLabel(driver, "continue-button");
+		homePage = PageGenerator.getHomePage(driver);
 	}
 	
 	@Test(description = "Test Case 2: Login User with correct email and password")

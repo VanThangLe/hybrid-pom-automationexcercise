@@ -523,9 +523,9 @@ public class BasePage {
 		isJQueryAJAXLoadedSuccess(driver);
 	}
 	
-	public void clickToButtonByIDName(WebDriver driver, String buttonIDName) {
-		waitForElementClickAble(driver, BasePageUI.BUTTON_BY_ID_NAME, buttonIDName);
-		clickToElement(driver, BasePageUI.BUTTON_BY_ID_NAME, buttonIDName);
+	public void clickToButtonByLabel(WebDriver driver, String labelButton) {
+		waitForElementClickAble(driver, BasePageUI.BUTTON_BY_LABEL, labelButton);
+		clickToElement(driver, BasePageUI.BUTTON_BY_LABEL, labelButton);
 	}
 	
 	public void enterToTextboxByIDName(WebDriver driver, String textboxIDName, String value) {
@@ -533,62 +533,27 @@ public class BasePage {
 		sendkeyToElement(driver, BasePageUI.TEXTBOX_BY_ID_NAME, value, textboxIDName);
 	}
 	
-	public String getTextByIDName(WebDriver driver, String attribute) {
-		waitForElementVisible(driver, BasePageUI.TEXTBOX_VALUE_BY_ID_NAME, attribute);
-		return getElementText(driver, BasePageUI.TEXTBOX_VALUE_BY_ID_NAME, attribute);
+	public void clickToRadioButtonByID(WebDriver driver, String radioID) {
+		waitForElementClickAble(driver, BasePageUI.RADIO_BUTTON_BY_ID, radioID);
+		clickToElement(driver, BasePageUI.RADIO_BUTTON_BY_ID, radioID);
 	}
 	
-	public String getErrorMessageByIDLabel(WebDriver driver, String attribute) {
-		waitForElementVisible(driver, BasePageUI.ERROR_MESSAGE_BY_LABEL, attribute);
-		return getElementText(driver, BasePageUI.ERROR_MESSAGE_BY_LABEL, attribute);
-	}
-	
-	public void selectItemInDropdownByID(WebDriver driver, String dropdownID, String valueItem) {
-		waitForElementClickAble(driver, BasePageUI.DROPDOWN_BY_ID, dropdownID);
-		selectItemInDefaultDropdown(driver, BasePageUI.DROPDOWN_BY_ID, valueItem, dropdownID);
-	}
-	
-	public String getSelectedValueInDropdownByID(WebDriver driver, String dropdownID) {
-		waitForElementVisible(driver, BasePageUI.DROPDOWN_BY_ID, dropdownID);
-		return getFirstSelectedItemInDefaultDropdown(driver, BasePageUI.DROPDOWN_BY_ID, dropdownID);
-	}
-	
-	public void clickToCheckboxByNameValue(WebDriver driver, String checkboxName, String checkboxValue) {
-		waitForElementClickAble(driver, BasePageUI.CHECKBOX_BY_NAME_VALUE, checkboxName, checkboxValue);
-		checkToCheckboxOrRadio(driver, BasePageUI.CHECKBOX_BY_NAME_VALUE, checkboxName, checkboxValue);
-	}
-	
-	public boolean isCheckboxButtonSelectedByLabel(WebDriver driver, String checkboxLabelName, String checkboxValue) {
-		waitForElementVisible(driver, BasePageUI.CHECKBOX_BY_NAME_VALUE, checkboxLabelName, checkboxValue);
-		return isElementSelected(driver, BasePageUI.CHECKBOX_BY_NAME_VALUE, checkboxLabelName, checkboxValue);
-	}
-	
-	public void clickToRadioByLabel(WebDriver driver, String radioLabelName) {
-		waitForElementClickAble(driver, BasePageUI.RADIO_BY_LABEL, radioLabelName); 
-		checkToCheckboxOrRadio(driver, BasePageUI.RADIO_BY_LABEL, radioLabelName);
-	}
-	
-	public boolean isRadioButtonSelectedByLabel(WebDriver driver, String radioLabelName) {
-		waitForElementVisible(driver, BasePageUI.RADIO_BY_LABEL, radioLabelName);
-		return isElementSelected(driver, BasePageUI.RADIO_BY_LABEL, radioLabelName);
-	}
-	
-	public String getValueAtColumnIndexAndRowIndexTableList(WebDriver driver, String rowIndex, String columnIndex) {
-		waitForElementVisible(driver, BasePageUI.TABLE_LIST_ROW_BY_COLUMN_INDEX_AND_ROW_INDEX, rowIndex, columnIndex);
-		return getElementText(driver, BasePageUI.TABLE_LIST_ROW_BY_COLUMN_INDEX_AND_ROW_INDEX, rowIndex, columnIndex);
-	}
-	
-	public String getValueAtColumnIndexAndRowIndexTableAssign(WebDriver driver, String tableValue, String rowIndex, String columnIndex) {
-		waitForElementVisible(driver, BasePageUI.TABLE_ASSIGN_ROW_BY_COLUMN_INDEX_AND_ROW_INDEX, tableValue, rowIndex, columnIndex);
-		return getElementText(driver, BasePageUI.TABLE_ASSIGN_ROW_BY_COLUMN_INDEX_AND_ROW_INDEX, tableValue, rowIndex, columnIndex);
+	public void clickToCheckboxByID(WebDriver driver, String checkboxID) {
+		waitForElementClickAble(driver, BasePageUI.CHECKBOX_BY_ID, checkboxID);
+		clickToElement(driver, BasePageUI.CHECKBOX_BY_ID, checkboxID);
 	}
 	
 	public void uploadImage(WebDriver driver, String filePath) {
 		getWebElement(driver, BasePageUI.UPLOAD_FILE).sendKeys(filePath);
 	}
 	
-	public boolean isTitleTextPageDisplayed(WebDriver driver, String value) {
-		waitForElementVisible(driver, BasePageUI.TITLE_TEXT, value);
-		return isElementDisplayed(driver, BasePageUI.TITLE_TEXT, value);
+	public void selectItemInDropdownByName(WebDriver driver, String dropdownName, String valueItem) {
+		waitForElementClickAble(driver, BasePageUI.DROPDOWN_BY_NAME, dropdownName);
+		selectItemInDefaultDropdown(driver, BasePageUI.DROPDOWN_BY_NAME, valueItem, dropdownName);
+	}
+	
+	public boolean isLabelFormDisplayed(WebDriver driver, String textValue) {
+		waitForElementVisible(driver, BasePageUI.TITLE_FORM, textValue);
+		return isElementDisplayed(driver, BasePageUI.TITLE_FORM, textValue);
 	}
 }
