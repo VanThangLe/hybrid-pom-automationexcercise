@@ -26,4 +26,20 @@ public class PageGenerator {
 	public static DeleteAccountPageObject getDeleteAccountPage(WebDriver driver) {
 		return new DeleteAccountPageObject(driver);
 	}
+
+	public static ContactUsPageObject getContactUsPage(WebDriver driver) {
+		return new ContactUsPageObject(driver);
+	}
+
+	public static TestCasesPageObject getTestCasesPage(WebDriver driver) {
+		return new TestCasesPageObject(driver);
+	}
+
+	public static ProductsPageObject getProductsPage(WebDriver driver) {
+		return new ProductsPageObject(driver);
+	}
+	
+	public static ProductsDetailPageObject getProductsDetailPage(WebDriver driver) {
+		return new ProductsDetailPageObject(driver);
+	}
 }

@@ -7,12 +7,17 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import commons.BaseTest;
+import commons.GlobalConstants;
 import pageObjects.automationexercise.AccountCreatedPageObject;
+import pageObjects.automationexercise.ContactUsPageObject;
 import pageObjects.automationexercise.DeleteAccountPageObject;
 import pageObjects.automationexercise.HomePageObject;
 import pageObjects.automationexercise.SignupLoginPageObject;
 import pageObjects.automationexercise.SignupPageObject;
+import pageObjects.automationexercise.TestCasesPageObject;
 import pageObjects.automationexercise.PageGenerator;
+import pageObjects.automationexercise.ProductsDetailPageObject;
+import pageObjects.automationexercise.ProductsPageObject;
 import pageObjects.automationexercise.RegisterPageObject;
 
 public class TestCase extends BaseTest {
@@ -23,8 +28,13 @@ public class TestCase extends BaseTest {
 	SignupPageObject signupPage;
 	AccountCreatedPageObject accountCreatedPage;
 	DeleteAccountPageObject deleteAccountPage;
+	ContactUsPageObject contactUsPage;
+	TestCasesPageObject testCasesPage;
+	ProductsPageObject productsPage;
+	ProductsDetailPageObject productsDetailPage;
 	
 	String username, email, password, day, month, year, last_name, first_name, company, address, address2, country, state, city, zipcode, mobile_number;
+	String imagePath = GlobalConstants.UPLOAD_FOLDER_PATH + "a.jpg";
 	
 	@Parameters({ "browserName", "appUrl" })
 	@BeforeClass
@@ -124,160 +134,295 @@ public class TestCase extends BaseTest {
 	@Test(description = "Test Case 2: Login User with correct email and password")
 	public void Testcase_02() {
 		log.info("Testcase_02 - Step 01: Click on 'Signup / Login' button");
+		homePage.openMenuPage(driver, "Signup / Login");
+		signupLoginPage = PageGenerator.getSignupLoginPage(driver);
 		
+		log.info("Testcase_02 - Step 02: Create new account");
+		signupLoginPage.enterToTextboxByIDName(driver, "signup-name", username);
+		signupLoginPage.enterToTextboxByIDName(driver, "signup-email", email);
+		signupLoginPage.clickToButtonByLabel(driver, "signup-button");
+		signupPage = PageGenerator.getSignupPage(driver);
 		
-		log.info("Testcase_02 - Step 02: Verify 'Login to your account' is visible");
+		signupPage.clickToRadioButtonByID(driver, "uniform-id_gender1");
+		signupPage.enterToTextboxByIDName(driver, "name", username);
+		signupPage.enterToTextboxByIDName(driver, "password", password);
+		signupPage.selectItemInDropdownByName(driver, "days", day);
+		signupPage.selectItemInDropdownByName(driver, "months", month);
+		signupPage.selectItemInDropdownByName(driver, "years", year);
+		signupPage.clickToCheckboxByID(driver, "newsletter");
+		signupPage.clickToCheckboxByID(driver, "optin");
+		signupPage.enterToTextboxByIDName(driver, "first_name", last_name);
+		signupPage.enterToTextboxByIDName(driver, "last_name", first_name);
+		signupPage.enterToTextboxByIDName(driver, "company", company);
+		signupPage.enterToTextboxByIDName(driver, "address", address);
+		signupPage.enterToTextboxByIDName(driver, "address2", address2);
+		signupPage.selectItemInDropdownByName(driver, "country", country);
+		signupPage.enterToTextboxByIDName(driver, "state", state);
+		signupPage.enterToTextboxByIDName(driver, "city", city);
+		signupPage.enterToTextboxByIDName(driver, "zipcode", zipcode);
+		signupPage.enterToTextboxByIDName(driver, "mobile_number", mobile_number);
+		signupPage.clickToButtonByLabel(driver, "create-account");
+		accountCreatedPage = PageGenerator.getAccountCreatedPage(driver);
 		
+		accountCreatedPage.clickToButtonByLabel(driver, "continue-button");
+		homePage = PageGenerator.getHomePage(driver);
 		
-		log.info("Testcase_02 - Step 03: Enter correct email address and password");
+		homePage.openMenuPage(driver, "Logout");
+		signupLoginPage = PageGenerator.getSignupLoginPage(driver);
 		
+		log.info("Testcase_02 - Step 03: Verify 'Login to your account' is visible");
+		verifyTrue(signupLoginPage.isLabelFormDisplayed(driver, "Login to your account"));
 		
-		log.info("Testcase_02 - Step 04: Click 'login' button");
+		log.info("Testcase_02 - Step 04: Enter correct email address and password");
+		signupLoginPage.enterToTextboxByIDName(driver, "login-email", email);
+		signupLoginPage.enterToTextboxByIDName(driver, "login-password", password);
 		
+		log.info("Testcase_02 - Step 05: Click 'login' button");
+		signupLoginPage.clickToButtonByLabel(driver, "login-button");
+		homePage = PageGenerator.getHomePage(driver);
 		
-		log.info("Testcase_02 - Step 05: Verify that 'Logged in as username' is visible");
+		log.info("Testcase_02 - Step 06: Verify that 'Logged in as username' is visible");
+		verifyTrue(homePage.isLabelFormDisplayed(driver, "Logged in as " + username));
 		
+		log.info("Testcase_02 - Step 07: Click 'Delete Account' button");
+		homePage.openMenuPage(driver, "Delete Account");
+		deleteAccountPage = PageGenerator.getDeleteAccountPage(driver);
 		
-		log.info("Testcase_02 - Step 06: Click 'Delete Account' button");
-		
-		
-		log.info("Testcase_02 - Step 07: Verify that 'ACCOUNT DELETED!' is visible");
-		
+		log.info("Testcase_02 - Step 08: Verify that 'ACCOUNT DELETED!' is visible");
+		verifyTrue(deleteAccountPage.isLabelFormDisplayed(driver, "ACCOUNT DELETED!"));
+		deleteAccountPage.clickToButtonByLabel(driver, "continue-button");
+		homePage = PageGenerator.getHomePage(driver);
 	}
 	
 	@Test(description = "Test Case 3: Login User with incorrect email and password")
 	public void Testcase_03() {
 		log.info("Testcase_03 - Step 01: Click on 'Signup / Login' button");
+		homePage.openMenuPage(driver, "Signup / Login");
+		signupLoginPage = PageGenerator.getSignupLoginPage(driver);
 		
+		log.info("Testcase_03 - Step 02: Create new account");
+		signupLoginPage.enterToTextboxByIDName(driver, "signup-name", username);
+		signupLoginPage.enterToTextboxByIDName(driver, "signup-email", email);
+		signupLoginPage.clickToButtonByLabel(driver, "signup-button");
+		signupPage = PageGenerator.getSignupPage(driver);
 		
-		log.info("Testcase_03 - Step 02: Verify 'Login to your account' is visible");
+		signupPage.clickToRadioButtonByID(driver, "uniform-id_gender1");
+		signupPage.enterToTextboxByIDName(driver, "name", username);
+		signupPage.enterToTextboxByIDName(driver, "password", password);
+		signupPage.selectItemInDropdownByName(driver, "days", day);
+		signupPage.selectItemInDropdownByName(driver, "months", month);
+		signupPage.selectItemInDropdownByName(driver, "years", year);
+		signupPage.clickToCheckboxByID(driver, "newsletter");
+		signupPage.clickToCheckboxByID(driver, "optin");
+		signupPage.enterToTextboxByIDName(driver, "first_name", last_name);
+		signupPage.enterToTextboxByIDName(driver, "last_name", first_name);
+		signupPage.enterToTextboxByIDName(driver, "company", company);
+		signupPage.enterToTextboxByIDName(driver, "address", address);
+		signupPage.enterToTextboxByIDName(driver, "address2", address2);
+		signupPage.selectItemInDropdownByName(driver, "country", country);
+		signupPage.enterToTextboxByIDName(driver, "state", state);
+		signupPage.enterToTextboxByIDName(driver, "city", city);
+		signupPage.enterToTextboxByIDName(driver, "zipcode", zipcode);
+		signupPage.enterToTextboxByIDName(driver, "mobile_number", mobile_number);
+		signupPage.clickToButtonByLabel(driver, "create-account");
+		accountCreatedPage = PageGenerator.getAccountCreatedPage(driver);
 		
+		accountCreatedPage.clickToButtonByLabel(driver, "continue-button");
+		homePage = PageGenerator.getHomePage(driver);
 		
-		log.info("Testcase_03 - Step 03: Enter incorrect email address and password");
+		homePage.openMenuPage(driver, "Logout");
+		signupLoginPage = PageGenerator.getSignupLoginPage(driver);
 		
+		log.info("Testcase_03 - Step 03: Verify 'Login to your account' is visible");
+		verifyTrue(signupLoginPage.isLabelFormDisplayed(driver, "Login to your account"));
 		
-		log.info("Testcase_03 - Step 04: Click 'login' button");
+		log.info("Testcase_03 - Step 04: Enter correct email address and password");
+		signupLoginPage.enterToTextboxByIDName(driver, "login-email", email);
+		signupLoginPage.enterToTextboxByIDName(driver, "login-password", password + 0000);
 		
+		log.info("Testcase_03 - Step 05: Click 'login' button");
+		signupLoginPage.clickToButtonByLabel(driver, "login-button");
 		
-		log.info("Testcase_03 - Step 05: Verify error 'Your email or password is incorrect!' is visible");
-		
+		log.info("Testcase_03 - Step 06: Verify error 'Your email or password is incorrect!' is visible");
+		verifyTrue(signupLoginPage.isLabelFormDisplayed(driver, "Your email or password is incorrect!"));
+		signupLoginPage.openMenuPage(driver, "Home");
+		homePage = PageGenerator.getHomePage(driver);
 	}
 	
 	@Test(description = "Test Case 4: Logout User")
 	public void Testcase_04() {
 		log.info("Testcase_04 - Step 01: Click on 'Signup / Login' button");
+		homePage.openMenuPage(driver, "Signup / Login");
+		signupLoginPage = PageGenerator.getSignupLoginPage(driver);
 		
+		log.info("Testcase_04 - Step 02: Create new account");
+		signupLoginPage.enterToTextboxByIDName(driver, "signup-name", username);
+		signupLoginPage.enterToTextboxByIDName(driver, "signup-email", email);
+		signupLoginPage.clickToButtonByLabel(driver, "signup-button");
+		signupPage = PageGenerator.getSignupPage(driver);
 		
-		log.info("Testcase_04 - Step 02: Verify 'Login to your account' is visible");
+		signupPage.clickToRadioButtonByID(driver, "uniform-id_gender1");
+		signupPage.enterToTextboxByIDName(driver, "name", username);
+		signupPage.enterToTextboxByIDName(driver, "password", password);
+		signupPage.selectItemInDropdownByName(driver, "days", day);
+		signupPage.selectItemInDropdownByName(driver, "months", month);
+		signupPage.selectItemInDropdownByName(driver, "years", year);
+		signupPage.clickToCheckboxByID(driver, "newsletter");
+		signupPage.clickToCheckboxByID(driver, "optin");
+		signupPage.enterToTextboxByIDName(driver, "first_name", last_name);
+		signupPage.enterToTextboxByIDName(driver, "last_name", first_name);
+		signupPage.enterToTextboxByIDName(driver, "company", company);
+		signupPage.enterToTextboxByIDName(driver, "address", address);
+		signupPage.enterToTextboxByIDName(driver, "address2", address2);
+		signupPage.selectItemInDropdownByName(driver, "country", country);
+		signupPage.enterToTextboxByIDName(driver, "state", state);
+		signupPage.enterToTextboxByIDName(driver, "city", city);
+		signupPage.enterToTextboxByIDName(driver, "zipcode", zipcode);
+		signupPage.enterToTextboxByIDName(driver, "mobile_number", mobile_number);
+		signupPage.clickToButtonByLabel(driver, "create-account");
+		accountCreatedPage = PageGenerator.getAccountCreatedPage(driver);
 		
+		accountCreatedPage.clickToButtonByLabel(driver, "continue-button");
+		homePage = PageGenerator.getHomePage(driver);
 		
-		log.info("Testcase_04 - Step 03: Enter correct email address and password");
+		homePage.openMenuPage(driver, "Logout");
+		signupLoginPage = PageGenerator.getSignupLoginPage(driver);
 		
+		log.info("Testcase_04 - Step 03: Verify 'Login to your account' is visible");
+		verifyTrue(signupLoginPage.isLabelFormDisplayed(driver, "Login to your account"));
 		
-		log.info("Testcase_04 - Step 04: Click 'login' button");
+		log.info("Testcase_04 - Step 04: Enter correct email address and password");
+		signupLoginPage.enterToTextboxByIDName(driver, "login-email", email);
+		signupLoginPage.enterToTextboxByIDName(driver, "login-password", password);
 		
+		log.info("Testcase_04 - Step 05: Click 'login' button");
+		signupLoginPage.clickToButtonByLabel(driver, "login-button");
+		homePage = PageGenerator.getHomePage(driver);
 		
-		log.info("Testcase_04 - Step 05: Verify that 'Logged in as username' is visible");
+		log.info("Testcase_04 - Step 06: Verify that 'Logged in as username' is visible");
+		verifyTrue(homePage.isLabelFormDisplayed(driver, "Logged in as " + username));
 		
+		log.info("Testcase_04 - Step 07: Click 'Logout' button");
+		homePage.openMenuPage(driver, "Logout");
+		signupLoginPage = PageGenerator.getSignupLoginPage(driver);
 		
-		log.info("Testcase_04 - Step 06: Click 'Logout' button");
-		
-		
-		log.info("Testcase_04 - Step 07: Verify that user is navigated to login page");
-		
+		log.info("Testcase_04 - Step 08: Verify that user is navigated to login page");
+		verifyTrue(signupLoginPage.isLabelFormDisplayed(driver, "Login to your account"));
+		signupLoginPage.openMenuPage(driver, "Home");
+		homePage = PageGenerator.getHomePage(driver);
 	}
 	
 	@Test(description = "Test Case 5: Register User with existing email")
 	public void Testcase_05() {
 		log.info("Testcase_05 - Step 01: Click on 'Signup / Login' button");
-		
+		homePage.openMenuPage(driver, "Signup / Login");
+		signupLoginPage = PageGenerator.getSignupLoginPage(driver);
 		
 		log.info("Testcase_05 - Step 02: Verify 'New User Signup!' is visible");
-		
+		verifyTrue(signupLoginPage.isLabelFormDisplayed(driver, "New User Signup!"));
 		
 		log.info("Testcase_05 - Step 03: Enter name and already registered email address");
-		
+		signupLoginPage.enterToTextboxByIDName(driver, "signup-name", username);
+		signupLoginPage.enterToTextboxByIDName(driver, "signup-email", email);
 		
 		log.info("Testcase_05 - Step 04: Click 'Signup' button");
-		
+		signupLoginPage.clickToButtonByLabel(driver, "signup-button");
 		
 		log.info("Testcase_05 - Step 05: Verify error 'Email Address already exist!' is visible");
-		
+		verifyTrue(signupLoginPage.isLabelFormDisplayed(driver, "Email Address already exist!"));
+		signupLoginPage.openMenuPage(driver, "Home");
+		homePage = PageGenerator.getHomePage(driver);
 	}
 	
 	@Test(description = "Test Case 6: Contact Us Form")
 	public void Testcase_06() {
 		log.info("Testcase_06 - Step 01: Click on 'Contact Us' button");
-		
+		homePage.openMenuPage(driver, "Contact us");
+		contactUsPage = PageGenerator.getContactUsPage(driver);
 		
 		log.info("Testcase_06 - Step 02: Verify 'GET IN TOUCH' is visible");
-		
+		verifyTrue(contactUsPage.isLabelFormDisplayed(driver, "GET IN TOUCH"));
 		
 		log.info("Testcase_06 - Step 03: Enter name, email, subject and message");
-		
+		contactUsPage.enterToTextboxByIDName(driver, "name", username);
+		contactUsPage.enterToTextboxByIDName(driver, "email", email);
+		contactUsPage.enterToTextboxByIDName(driver, "subject", "FEEDBACK");
+		contactUsPage.enterToTextboxByIDName(driver, "message", "We really appreciate your response to our website.");
 		
 		log.info("Testcase_06 - Step 04: Upload file");
-		
+		contactUsPage.uploadImage(driver,  imagePath);
 		
 		log.info("Testcase_06 - Step 05: Click 'Submit' button");
-		
+		contactUsPage.clickToButtonByLabel(driver, "submit-button");
 		
 		log.info("Testcase_06 - Step 06: Click OK button");
-		
+		contactUsPage.acceptAlert(driver);
 		
 		log.info("Testcase_06 - Step 07: Verify success message 'Success! Your details have been submitted successfully.' is visible");
-		
+		verifyTrue(contactUsPage.isLabelFormDisplayed(driver, "Success! Your details have been submitted successfully."));
 		
 		log.info("Testcase_06 - Step 08: Click 'Home' button and verify that landed to home page successfully");
-		
+		contactUsPage.clickToButtonByXpath();
+		homePage = PageGenerator.getHomePage(driver);
+		verifyEquals(homePage.getPageUrl(driver), "https://automationexercise.com/");
 	}
 	
 	@Test(description = "Test Case 7: Verify Test Cases Page")
 	public void Testcase_07() {
 		log.info("Testcase_07 - Step 01: Click on 'Test Cases' button");
-		
+		homePage.openMenuPage(driver, "Test Cases");
+		testCasesPage = PageGenerator.getTestCasesPage(driver);
 		
 		log.info("Testcase_07 - Step 02: Verify user is navigated to test cases page successfully");
-		
+		verifyEquals(testCasesPage.getPageUrl(driver), "https://automationexercise.com/test_cases");
+		testCasesPage.openMenuPage(driver, "Home");
+		homePage = PageGenerator.getHomePage(driver);
 	}
 	
 	@Test(description = "Test Case 8: Verify All Products and product detail page")
 	public void Testcase_08() {
 		log.info("Testcase_08 - Step 01: Click on 'Products' button");
-		
+		homePage.openMenuPage(driver, "Products");
+		productsPage = PageGenerator.getProductsPage(driver);
 		
 		log.info("Testcase_08 - Step 02: Verify user is navigated to ALL PRODUCTS page successfully");
-		
+		verifyTrue(productsPage.isLabelFormDisplayed(driver, "ALL PRODUCTS"));
 		
 		log.info("Testcase_08 - Step 03: The products list is visible");
-		
+		productsPage.isProductsVisible();
 		
 		log.info("Testcase_08 - Step 04: Click on 'View Product' of first product");
-		
+		productsPage.clickToViewProduct("1");
 		
 		log.info("Testcase_08 - Step 05: User is landed to product detail page");
+		productsDetailPage = PageGenerator.getProductsDetailPage(driver);
 		
-		
-		log.info("Testcase_08 - Step 06: Verify that detail detail is visible: product name, category, price, availability, condition, brand");
-		
+		log.info("Testcase_08 - Step 06: Verify that detail is visible: product name, category, price, availability, condition, brand");
+		verifyTrue(productsDetailPage.isProductsNameVisible());
+		verifyTrue(productsDetailPage.isProductsCategoryAvailabilityContidionBrandVisible("1"));
+		verifyTrue(productsDetailPage.isProductsCategoryAvailabilityContidionBrandVisible("2"));
+		verifyTrue(productsDetailPage.isProductsCategoryAvailabilityContidionBrandVisible("3"));
+		verifyTrue(productsDetailPage.isProductsCategoryAvailabilityContidionBrandVisible("4"));
 	}
 	
 	@Test(description = "Test Case 9: Search Product")
 	public void Testcase_09() {
 		log.info("Testcase_09 - Step 01: Click on 'Products' button");
-		
+		productsDetailPage.openMenuPage(driver, "Products");
+		productsPage = PageGenerator.getProductsPage(driver);
 		
 		log.info("Testcase_09 - Step 02: Verify user is navigated to ALL PRODUCTS page successfully");
-		
+		verifyTrue(productsPage.isLabelFormDisplayed(driver, "ALL PRODUCTS"));
 		
 		log.info("Testcase_09 - Step 03: Enter product name in search input and click search button");
-		
+		productsPage.enterToSearchTextbox("Top");
+		productsPage.clickToSearchButton();
 		
 		log.info("Testcase_09 - Step 04: Verify 'SEARCHED PRODUCTS' is visible");
-		
+		verifyTrue(productsPage.isLabelFormDisplayed(driver, "SEARCHED PRODUCTS"));
 		
 		log.info("Testcase_09 - Step 05: Verify all the products related to search are visible");
-		
+		verifyTrue(productsPage.isSearchedProductsDisplayed("1"));
 	}
 	
 	@Test(description = "Test Case 10: Verify Subscription in home page")
