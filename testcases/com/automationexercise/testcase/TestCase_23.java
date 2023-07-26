@@ -20,7 +20,7 @@ import pageObjects.automationexercise.ProductsDetailPageObject;
 import pageObjects.automationexercise.ProductsPageObject;
 import pageObjects.automationexercise.RegisterPageObject;
 
-public class TestCase extends BaseTest {
+public class TestCase_23 extends BaseTest {
 	WebDriver driver;
 	RegisterPageObject registerPage;
 	HomePageObject homePage;
