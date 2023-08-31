@@ -42,4 +42,12 @@ public class PageGenerator {
 	public static ProductsDetailPageObject getProductsDetailPage(WebDriver driver) {
 		return new ProductsDetailPageObject(driver);
 	}
+	
+	public static CartPageObject getCartPage(WebDriver driver) {
+		return new CartPageObject(driver);
+	}
+	
+	public static CheckoutPageObject getCheckoutPage(WebDriver driver) {
+		return new CheckoutPageObject(driver);
+	}
 }

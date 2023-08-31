@@ -13,7 +13,32 @@
 	<test name = "Run on CHROME">
 		<parameter name = "browserName" value = "chrome" />
 		<classes>
-			<class name = "com.automationexcercise.testcase.TestCase" />
+			<class name = "com.automationexcercise.testcase.TestCase_01" />
+			<class name = "com.automationexcercise.testcase.TestCase_02" />
+			<class name = "com.automationexcercise.testcase.TestCase_03" />
+			<class name = "com.automationexcercise.testcase.TestCase_04" />
+			<class name = "com.automationexcercise.testcase.TestCase_05" />
+			<class name = "com.automationexcercise.testcase.TestCase_06" />
+			<class name = "com.automationexcercise.testcase.TestCase_07" />
+			<class name = "com.automationexcercise.testcase.TestCase_08" />
+			<class name = "com.automationexcercise.testcase.TestCase_09" />
+			<class name = "com.automationexcercise.testcase.TestCase_10" />
+			<class name = "com.automationexcercise.testcase.TestCase_11" />
+			<class name = "com.automationexcercise.testcase.TestCase_12" />
+			<class name = "com.automationexcercise.testcase.TestCase_13" />
+			<class name = "com.automationexcercise.testcase.TestCase_14" />
+			<class name = "com.automationexcercise.testcase.TestCase_15" />
+			<class name = "com.automationexcercise.testcase.TestCase_16" />
+			<class name = "com.automationexcercise.testcase.TestCase_17" />
+			<class name = "com.automationexcercise.testcase.TestCase_18" />
+			<class name = "com.automationexcercise.testcase.TestCase_19" />
+			<class name = "com.automationexcercise.testcase.TestCase_20" />
+			<class name = "com.automationexcercise.testcase.TestCase_21" />
+			<class name = "com.automationexcercise.testcase.TestCase_22" />
+			<class name = "com.automationexcercise.testcase.TestCase_23" />
+			<class name = "com.automationexcercise.testcase.TestCase_24" />
+			<class name = "com.automationexcercise.testcase.TestCase_25" />
+			<class name = "com.automationexcercise.testcase.TestCase_26" />
 		</classes>
 	</test>
 	

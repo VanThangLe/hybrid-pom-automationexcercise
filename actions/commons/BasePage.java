@@ -523,14 +523,24 @@ public class BasePage {
 		isJQueryAJAXLoadedSuccess(driver);
 	}
 	
-	public void clickToButtonByLabel(WebDriver driver, String labelButton) {
-		waitForElementClickAble(driver, BasePageUI.BUTTON_BY_LABEL, labelButton);
-		clickToElement(driver, BasePageUI.BUTTON_BY_LABEL, labelButton);
+	public void clickToButtonByDataQA(WebDriver driver, String buttonDataQA) {
+		waitForElementClickAble(driver, BasePageUI.BUTTON_BY_DATA_QA, buttonDataQA);
+		clickToElement(driver, BasePageUI.BUTTON_BY_DATA_QA, buttonDataQA);
+	}
+	
+	public void clickToButtonByIDName(WebDriver driver, String buttonIDName) {
+		waitForElementClickAble(driver, BasePageUI.BUTTON_BY_ID_NAME, buttonIDName);
+		clickToElement(driver, BasePageUI.BUTTON_BY_ID_NAME, buttonIDName);
+	}
+	
+	public void enterToTextboxByDataQA(WebDriver driver, String textboxDataQA, String value) {
+		waitForElementVisible(driver, BasePageUI.TEXTBOX_BY_DATA_QA, textboxDataQA);
+		sendkeyToElement(driver, BasePageUI.TEXTBOX_BY_DATA_QA, value, textboxDataQA);
 	}
 	
 	public void enterToTextboxByIDName(WebDriver driver, String textboxIDName, String value) {
-		waitForElementVisible(driver, BasePageUI.TEXTBOX_BY_ID_NAME, textboxIDName);
-		sendkeyToElement(driver, BasePageUI.TEXTBOX_BY_ID_NAME, value, textboxIDName);
+		waitForElementVisible(driver, BasePageUI.TEXTBOX_BY_DATA_QA, textboxIDName);
+		sendkeyToElement(driver, BasePageUI.TEXTBOX_BY_DATA_QA, value, textboxIDName);
 	}
 	
 	public void clickToRadioButtonByID(WebDriver driver, String radioID) {
