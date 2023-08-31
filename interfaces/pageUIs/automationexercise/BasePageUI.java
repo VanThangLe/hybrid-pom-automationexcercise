@@ -10,5 +10,6 @@ public class BasePageUI {
 	public static final String BUTTON_BY_ID_NAME = "//button[@id='%s']";
 	public static final String RADIO_BUTTON_BY_ID = "//div[@id='%s']";
 	public static final String CHECKBOX_BY_ID = "//input[@id='%s']";
-	public static final String TITLE_FORM = "//*[contains(text(), '%s')]";
+	public static final String TITLE_TEXT = "//*[contains(text(), '%s')]";
+	public static final String TEXTAREA_BY_ID_NAME = "//textarea[@id='%s']";
 }

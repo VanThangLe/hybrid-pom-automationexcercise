@@ -21,16 +21,6 @@ public class ProductsPageObject extends BasePage {
 		clickToElement(driver, ProductsPageUI.VIEW_PRODUCT_XPATH, value);
 	}
 
-	public void enterToSearchTextbox(String searchText) {
-		waitForElementVisible(driver, ProductsPageUI.SEARCH_TEXTBOX_BY_NAME, searchText);
-		sendkeyToElement(driver, ProductsPageUI.SEARCH_TEXTBOX_BY_NAME, searchText);
-	}
-	
-	public void clickToSearchButton() {
-		waitForElementClickAble(driver, ProductsPageUI.SEARCH_BUTTON_BY_ID);
-		clickToElement(driver, ProductsPageUI.SEARCH_BUTTON_BY_ID);
-	}
-
 	public boolean isSearchedProductsDisplayed(String value) {
 		waitForElementVisible(driver, ProductsPageUI.SEARCHED_PRODUCTS, value);
 		return isElementDisplayed(driver, ProductsPageUI.SEARCHED_PRODUCTS, value);

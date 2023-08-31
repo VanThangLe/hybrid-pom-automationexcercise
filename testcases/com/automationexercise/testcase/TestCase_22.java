@@ -27,13 +27,13 @@ public class TestCase_22 extends BaseTest {
 	@Test(description = "Test Case 22: Add to cart from Recommended items")
 	public void Testcase_22() {
 		log.info("Testcase_22 - Step 01: Scroll to bottom of page");
-		
+		homePage.scrollToBottomPage(driver);
 		
 		log.info("Testcase_22 - Step 02: Verify 'RECOMMENDED ITEMS' are visible");
-		
+		verifyTrue(homePage.isTitleTextDisplayed(driver, "RECOMMENDED ITEMS"));
 		
 		log.info("Testcase_22 - Step 03: Click on 'Add To Cart' on Recommended product");
-		
+		homePage.cl
 		
 		log.info("Testcase_22 - Step 04: Click on 'View Cart' button");
 		

@@ -363,6 +363,11 @@ public class BasePage {
 		jsExecutor = (JavascriptExecutor) driver;
 		jsExecutor.executeScript("window.scrollBy(0,document.body.scrollHeight)");
 	}
+	
+	public void scrollToTopPage(WebDriver driver) {
+		jsExecutor = (JavascriptExecutor) driver;
+		jsExecutor.executeScript("window.scrollTo(document.body.scrollHeight, 0)");
+	}
 
 	public void navigateToUrlByJS(WebDriver driver, String url) {
 		jsExecutor = (JavascriptExecutor) driver;
@@ -533,14 +538,19 @@ public class BasePage {
 		clickToElement(driver, BasePageUI.BUTTON_BY_ID_NAME, buttonIDName);
 	}
 	
-	public void enterToTextboxByDataQA(WebDriver driver, String textboxDataQA, String value) {
+	public void enterToTextboxByDataQA(WebDriver driver, String textboxDataQA, String valueItem) {
 		waitForElementVisible(driver, BasePageUI.TEXTBOX_BY_DATA_QA, textboxDataQA);
-		sendkeyToElement(driver, BasePageUI.TEXTBOX_BY_DATA_QA, value, textboxDataQA);
+		sendkeyToElement(driver, BasePageUI.TEXTBOX_BY_DATA_QA, valueItem, textboxDataQA);
 	}
 	
-	public void enterToTextboxByIDName(WebDriver driver, String textboxIDName, String value) {
+	public void enterToTextboxByIDName(WebDriver driver, String textboxIDName, String valueItem) {
 		waitForElementVisible(driver, BasePageUI.TEXTBOX_BY_DATA_QA, textboxIDName);
-		sendkeyToElement(driver, BasePageUI.TEXTBOX_BY_DATA_QA, value, textboxIDName);
+		sendkeyToElement(driver, BasePageUI.TEXTBOX_BY_DATA_QA, valueItem, textboxIDName);
+	}
+	
+	public void enterToTextareaByIDName(WebDriver driver, String textareaIDName, String valueItem) {
+		waitForElementVisible(driver, BasePageUI.TEXTAREA_BY_ID_NAME, textareaIDName);
+		sendkeyToElement(driver, BasePageUI.TEXTAREA_BY_ID_NAME, valueItem, textareaIDName);
 	}
 	
 	public void clickToRadioButtonByID(WebDriver driver, String radioID) {
@@ -562,8 +572,8 @@ public class BasePage {
 		selectItemInDefaultDropdown(driver, BasePageUI.DROPDOWN_BY_NAME, valueItem, dropdownName);
 	}
 	
-	public boolean isLabelFormDisplayed(WebDriver driver, String textValue) {
-		waitForElementVisible(driver, BasePageUI.TITLE_FORM, textValue);
-		return isElementDisplayed(driver, BasePageUI.TITLE_FORM, textValue);
+	public boolean isTitleTextDisplayed(WebDriver driver, String titleText) {
+		waitForElementVisible(driver, BasePageUI.TITLE_TEXT, titleText);
+		return isElementDisplayed(driver, BasePageUI.TITLE_TEXT, titleText);
 	}
 }

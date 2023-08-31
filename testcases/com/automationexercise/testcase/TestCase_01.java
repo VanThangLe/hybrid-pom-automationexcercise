@@ -41,7 +41,7 @@ public class TestCase_01 extends BaseTest {
 		signupLoginPage = PageGenerator.getSignupLoginPage(driver);
 		
 		log.info("Testcase_01 - Step 02: Verify 'New User Signup!' is visible");
-		verifyTrue(signupLoginPage.isLabelFormDisplayed(driver, "New User Signup!"));
+		verifyTrue(signupLoginPage.isTitleTextDisplayed(driver, "New User Signup!"));
 		
 		log.info("Testcase_01 - Step 03: Enter name and email address");
 		signupLoginPage.enterToTextboxByDataQA(driver, "signup-name", Data.Testcase_01.USERNAME);
@@ -52,7 +52,7 @@ public class TestCase_01 extends BaseTest {
 		signupPage = PageGenerator.getSignupPage(driver);
 		
 		log.info("Testcase_01 - Step 05: Verify that 'ENTER ACCOUNT INFORMATION' is visible");
-		verifyTrue(signupPage.isLabelFormDisplayed(driver, "Enter Account Information"));
+		verifyTrue(signupPage.isTitleTextDisplayed(driver, "Enter Account Information"));
 		
 		log.info("Testcase_01 - Step 06: Fill details: Title, Name, Email, Password, Date of birth");
 		signupPage.clickToRadioButtonByID(driver, "uniform-id_gender1");
@@ -85,21 +85,21 @@ public class TestCase_01 extends BaseTest {
 		accountCreatedPage = PageGenerator.getAccountCreatedPage(driver);
 		
 		log.info("Testcase_01 - Step 11: Verify that 'ACCOUNT CREATED!' is visible");
-		verifyTrue(accountCreatedPage.isLabelFormDisplayed(driver, "ACCOUNT CREATED!"));
+		verifyTrue(accountCreatedPage.isTitleTextDisplayed(driver, "ACCOUNT CREATED!"));
 		
 		log.info("Testcase_01 - Step 12: Click 'Continue' button");
 		accountCreatedPage.clickToButtonByDataQA(driver, "continue-button");
 		homePage = PageGenerator.getHomePage(driver);
 		
 		log.info("Testcase_01 - Step 13: Verify that 'Logged in as username' is visible");
-		verifyTrue(homePage.isLabelFormDisplayed(driver, "Logged in as " + Data.Testcase_01.USERNAME));
+		verifyTrue(homePage.isTitleTextDisplayed(driver, "Logged in as " + Data.Testcase_01.USERNAME));
 		
 		log.info("Testcase_01 - Step 14: Click 'Delete Account' button");
 		homePage.openMenuPage(driver, "Delete Account");
 		deleteAccountPage = PageGenerator.getDeleteAccountPage(driver);
 		
 		log.info("Testcase_01 - Step 15: Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button");
-		verifyTrue(deleteAccountPage.isLabelFormDisplayed(driver, "ACCOUNT DELETED!"));
+		verifyTrue(deleteAccountPage.isTitleTextDisplayed(driver, "ACCOUNT DELETED!"));
 		deleteAccountPage.clickToButtonByDataQA(driver, "continue-button");
 		homePage = PageGenerator.getHomePage(driver);
 	}

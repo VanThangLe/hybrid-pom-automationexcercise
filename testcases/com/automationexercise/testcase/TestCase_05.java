@@ -33,7 +33,7 @@ public class TestCase_05 extends BaseTest {
 		signupLoginPage = PageGenerator.getSignupLoginPage(driver);
 		
 		log.info("Testcase_05 - Step 02: Verify 'New User Signup!' is visible");
-		verifyTrue(signupLoginPage.isLabelFormDisplayed(driver, "New User Signup!"));
+		verifyTrue(signupLoginPage.isTitleTextDisplayed(driver, "New User Signup!"));
 		
 		log.info("Testcase_05 - Step 03: Enter name and already registered email address");
 		signupLoginPage.enterToTextboxByDataQA(driver, "signup-name", Data.Testcase_01.USERNAME);
@@ -43,7 +43,7 @@ public class TestCase_05 extends BaseTest {
 		signupLoginPage.clickToButtonByDataQA(driver, "signup-button");
 		
 		log.info("Testcase_05 - Step 05: Verify error 'Email Address already exist!' is visible");
-		verifyTrue(signupLoginPage.isLabelFormDisplayed(driver, "Email Address already exist!"));
+		verifyTrue(signupLoginPage.isTitleTextDisplayed(driver, "Email Address already exist!"));
 		signupLoginPage.openMenuPage(driver, "Home");
 		homePage = PageGenerator.getHomePage(driver);
 	}

@@ -33,7 +33,7 @@ public class TestCase_06 extends BaseTest {
 		contactUsPage = PageGenerator.getContactUsPage(driver);
 		
 		log.info("Testcase_06 - Step 02: Verify 'GET IN TOUCH' is visible");
-		verifyTrue(contactUsPage.isLabelFormDisplayed(driver, "GET IN TOUCH"));
+		verifyTrue(contactUsPage.isTitleTextDisplayed(driver, "GET IN TOUCH"));
 		
 		log.info("Testcase_06 - Step 03: Enter name, email, subject and message");
 		contactUsPage.enterToTextboxByDataQA(driver, "name", Data.Testcase_01.USERNAME);
@@ -51,7 +51,7 @@ public class TestCase_06 extends BaseTest {
 		contactUsPage.acceptAlert(driver);
 		
 		log.info("Testcase_06 - Step 07: Verify success message 'Success! Your details have been submitted successfully.' is visible");
-		verifyTrue(contactUsPage.isLabelFormDisplayed(driver, "Success! Your details have been submitted successfully."));
+		verifyTrue(contactUsPage.isTitleTextDisplayed(driver, "Success! Your details have been submitted successfully."));
 		
 		log.info("Testcase_06 - Step 08: Click 'Home' button and verify that landed to home page successfully");
 		contactUsPage.clickToButtonByXpath();

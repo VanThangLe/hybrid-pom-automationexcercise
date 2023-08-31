@@ -38,14 +38,14 @@ public class TestCase_11 extends BaseTest {
 		cartPage.scrollToBottomPage(driver);
 		
 		log.info("Testcase_11 - Step 03: Verify text 'SUBSCRIPTION' displayed");
-		verifyTrue(cartPage.isLabelFormDisplayed(driver, "Subscription"));
+		verifyTrue(cartPage.isTitleTextDisplayed(driver, "Subscription"));
 		
 		log.info("Testcase_11 - Step 04: Enter email address in input and click arrow button");
 		cartPage.enterToTextboxByDataQA(driver, "susbscribe_email", Data.Testcase_01.EMAIL);
 		cartPage.clickToButtonByIDName(driver, "subscribe");
 		
 		log.info("Testcase_11 - Step 05: Verify success message 'You have been successfully subscribed!' is visible");
-		verifyTrue(cartPage.isLabelFormDisplayed(driver, "You have been successfully subscribed!"));
+		verifyTrue(cartPage.isTitleTextDisplayed(driver, "You have been successfully subscribed!"));
 	}
 	
 	@Parameters({ "browserName" })

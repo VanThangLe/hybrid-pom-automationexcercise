@@ -33,14 +33,14 @@ public class TestCase_09 extends BaseTest {
 		productsPage = PageGenerator.getProductsPage(driver);
 		
 		log.info("Testcase_09 - Step 02: Verify user is navigated to ALL PRODUCTS page successfully");
-		verifyTrue(productsPage.isLabelFormDisplayed(driver, "ALL PRODUCTS"));
+		verifyTrue(productsPage.isTitleTextDisplayed(driver, "ALL PRODUCTS"));
 		
 		log.info("Testcase_09 - Step 03: Enter product name in search input and click search button");
-		productsPage.enterToSearchTextbox(Data.Testcase_09.SEARCHTEXT);
-		productsPage.clickToSearchButton();
+		productsPage.enterToTextboxByIDName(driver, "search_product", Data.Testcase_09.SEARCHTEXT);
+		productsPage.clickToButtonByIDName(driver, "submit_search");
 		
 		log.info("Testcase_09 - Step 04: Verify 'SEARCHED PRODUCTS' is visible");
-		verifyTrue(productsPage.isLabelFormDisplayed(driver, "SEARCHED PRODUCTS"));
+		verifyTrue(productsPage.isTitleTextDisplayed(driver, "SEARCHED PRODUCTS"));
 		
 		log.info("Testcase_09 - Step 05: Verify all the products related to search are visible");
 		verifyTrue(productsPage.isSearchedProductsDisplayed("1"));

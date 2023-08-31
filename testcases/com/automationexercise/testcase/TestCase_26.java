@@ -25,16 +25,16 @@ public class TestCase_26 extends BaseTest {
 	@Test(description = "Test Case 26: Verify Scroll Up without 'Arrow' button and Scroll Down functionality")
 	public void Testcase_26() {
 		log.info("Testcase_26 - Step 01: Scroll down page to bottom");
-		
+		homePage.scrollToBottomPage(driver);
 		
 		log.info("Testcase_26 - Step 02: Verify 'SUBSCRIPTION' is visible");
-		
+		verifyTrue(homePage.isTitleTextDisplayed(driver, "Subscription"));
 		
 		log.info("Testcase_26 - Step 03: Scroll up page to top");
-		
+		homePage.scrollToTopPage(driver);
 		
 		log.info("Testcase_26 - Step 04: Verify that page is scrolled up and 'Full-Fledged practice website for Automation Engineers' text is visible on screen");
-		
+		verifyTrue(homePage.isTitleTextDisplayed("Full-Fledged practice website for Automation Engineers"));
 	}
 	
 	@Parameters({ "browserName" })

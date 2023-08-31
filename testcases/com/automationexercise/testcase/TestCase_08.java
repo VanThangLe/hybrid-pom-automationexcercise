@@ -33,7 +33,7 @@ public class TestCase_08 extends BaseTest {
 		productsPage = PageGenerator.getProductsPage(driver);
 		
 		log.info("Testcase_08 - Step 02: Verify user is navigated to ALL PRODUCTS page successfully");
-		verifyTrue(productsPage.isLabelFormDisplayed(driver, "ALL PRODUCTS"));
+		verifyTrue(productsPage.isTitleTextDisplayed(driver, "ALL PRODUCTS"));
 		
 		log.info("Testcase_08 - Step 03: The products list is visible");
 		productsPage.isProductsVisible();

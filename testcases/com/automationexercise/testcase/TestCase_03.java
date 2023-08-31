@@ -33,7 +33,7 @@ public class TestCase_03 extends BaseTest {
 		signupLoginPage = PageGenerator.getSignupLoginPage(driver);
 		
 		log.info("Testcase_03 - Step 02: Verify 'Login to your account' is visible");
-		verifyTrue(signupLoginPage.isLabelFormDisplayed(driver, "Login to your account"));
+		verifyTrue(signupLoginPage.isTitleTextDisplayed(driver, "Login to your account"));
 		
 		log.info("Testcase_03 - Step 03: Enter incorrect email address and password");
 		signupLoginPage.enterToTextboxByDataQA(driver, "login-email", Data.Testcase_01.USERNAME);
@@ -43,7 +43,7 @@ public class TestCase_03 extends BaseTest {
 		signupLoginPage.clickToButtonByDataQA(driver, "login-button");
 		
 		log.info("Testcase_03 - Step 05: Verify error 'Your email or password is incorrect!' is visible");
-		verifyTrue(signupLoginPage.isLabelFormDisplayed(driver, "Your email or password is incorrect!"));
+		verifyTrue(signupLoginPage.isTitleTextDisplayed(driver, "Your email or password is incorrect!"));
 		signupLoginPage.openMenuPage(driver, "Home");
 		homePage = PageGenerator.getHomePage(driver);
 	}
