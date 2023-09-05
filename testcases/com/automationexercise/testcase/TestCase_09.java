@@ -43,7 +43,7 @@ public class TestCase_09 extends BaseTest {
 		verifyTrue(productsPage.isTitleTextDisplayed(driver, "SEARCHED PRODUCTS"));
 		
 		log.info("Testcase_09 - Step 05: Verify all the products related to search are visible");
-		verifyTrue(productsPage.isSearchedProductsDisplayed("1"));
+		verifyTrue(productsPage.isSearchedProductsDisplayed(driver, "1"));
 	}
 	
 	@Parameters({ "browserName" })

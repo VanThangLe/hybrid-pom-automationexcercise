@@ -576,4 +576,36 @@ public class BasePage {
 		waitForElementVisible(driver, BasePageUI.TITLE_TEXT, titleText);
 		return isElementDisplayed(driver, BasePageUI.TITLE_TEXT, titleText);
 	}
+	
+	public void addProductToCartInProductLists(WebDriver driver, String productIndex) {
+		hoverToElement(driver, BasePageUI.PRODUCT_LISTS, productIndex);
+		waitForElementVisible(driver, BasePageUI.SINGLE_PRODUCTS, productIndex);
+		clickToElement(driver, BasePageUI.SINGLE_PRODUCTS, productIndex);
+	}
+	
+	public void clickToViewProduct(WebDriver driver, String productIndex) {
+		waitForElementClickAble(driver, BasePageUI.VIEW_PRODUCT_XPATH, productIndex);
+		clickToElement(driver, BasePageUI.VIEW_PRODUCT_XPATH, productIndex);
+	}
+
+	public boolean isSearchedProductsDisplayed(WebDriver driver, String productIndex) {
+		waitForElementVisible(driver, BasePageUI.PRODUCT_LISTS, productIndex);
+		return isElementDisplayed(driver, BasePageUI.PRODUCT_LISTS, productIndex);
+	}
+	
+	public void clickToButtonByTitle(WebDriver driver, String titleButton) {
+		driver.getWindowHandle();
+		waitForElementClickAble(driver, BasePageUI.TITLE_TEXT, titleButton);
+		clickToElement(driver, BasePageUI.TITLE_TEXT, titleButton);
+	}
+	
+	public String getDeliveryAddressValue(WebDriver driver, String addressAttribute) {
+		waitForElementVisible(driver, BasePageUI.DELIVERY_ADDRESS, addressAttribute);
+		return getElementText(driver, BasePageUI.DELIVERY_ADDRESS, addressAttribute);
+	}
+	
+	public String getBillingAddressValue(WebDriver driver, String addressAttribute) {
+		waitForElementVisible(driver, BasePageUI.BILLING_ADDRESS, addressAttribute);
+		return getElementText(driver, BasePageUI.BILLING_ADDRESS, addressAttribute);
+	}
 }

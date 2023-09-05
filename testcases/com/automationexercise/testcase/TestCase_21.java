@@ -38,7 +38,7 @@ public class TestCase_21 extends BaseTest {
 		verifyTrue(productsPage.isTitleTextDisplayed(driver, "ALL PRODUCTS"));
 		
 		log.info("Testcase_21 - Step 03: Click on 'View Product' button");
-		productsPage.clickToViewProduct("1");
+		productsPage.clickToViewProduct(driver, "1");
 		productsDetailPage = PageGenerator.getProductsDetailPage(driver);
 		
 		log.info("Testcase_21 - Step 04: Verify 'Write Your Review' is visible");

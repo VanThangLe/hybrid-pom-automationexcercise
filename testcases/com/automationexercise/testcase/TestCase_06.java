@@ -56,7 +56,7 @@ public class TestCase_06 extends BaseTest {
 		log.info("Testcase_06 - Step 08: Click 'Home' button and verify that landed to home page successfully");
 		contactUsPage.clickToButtonByXpath();
 		homePage = PageGenerator.getHomePage(driver);
-		verifyEquals(homePage.getPageUrl(driver), "https://automationexercise.com/");
+		verifyTrue(homePage.isTitleTextDisplayed("Full-Fledged practice website for Automation Engineers"));
 	}
 	
 	@Parameters({ "browserName" })

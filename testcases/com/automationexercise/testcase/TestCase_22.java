@@ -33,7 +33,7 @@ public class TestCase_22 extends BaseTest {
 		verifyTrue(homePage.isTitleTextDisplayed(driver, "RECOMMENDED ITEMS"));
 		
 		log.info("Testcase_22 - Step 03: Click on 'Add To Cart' on Recommended product");
-		homePage.cl
+		
 		
 		log.info("Testcase_22 - Step 04: Click on 'View Cart' button");
 		

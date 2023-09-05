@@ -39,7 +39,7 @@ public class TestCase_08 extends BaseTest {
 		productsPage.isProductsVisible();
 		
 		log.info("Testcase_08 - Step 04: Click on 'View Product' of first product");
-		productsPage.clickToViewProduct("1");
+		productsPage.clickToViewProduct(driver, "1");
 		
 		log.info("Testcase_08 - Step 05: User is landed to product detail page");
 		productsDetailPage = PageGenerator.getProductsDetailPage(driver);

@@ -32,7 +32,7 @@ public class TestCase_07 extends BaseTest {
 		testCasesPage = PageGenerator.getTestCasesPage(driver);
 		
 		log.info("Testcase_07 - Step 02: Verify user is navigated to test cases page successfully");
-		verifyEquals(testCasesPage.getPageUrl(driver), "https://automationexercise.com/test_cases");
+		verifyTrue(testCasesPage.isTitleTextDisplayed(driver, "Test Cases"));
 		testCasesPage.openMenuPage(driver, "Home");
 		homePage = PageGenerator.getHomePage(driver);
 	}
