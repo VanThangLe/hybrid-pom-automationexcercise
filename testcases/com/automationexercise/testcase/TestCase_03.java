@@ -36,7 +36,7 @@ public class TestCase_03 extends BaseTest {
 		verifyTrue(signupLoginPage.isTitleTextDisplayed(driver, "Login to your account"));
 		
 		log.info("Testcase_03 - Step 03: Enter incorrect email address and password");
-		signupLoginPage.enterToTextboxByDataQA(driver, "login-email", Data.Testcase_01.USERNAME);
+		signupLoginPage.enterToTextboxByDataQA(driver, "login-email", Data.Testcase_01.USER_NAME);
 		signupLoginPage.enterToTextboxByDataQA(driver, "login-password", Data.Testcase_01.PASSWORD + 0000);
 		
 		log.info("Testcase_03 - Step 04: Click 'login' button");

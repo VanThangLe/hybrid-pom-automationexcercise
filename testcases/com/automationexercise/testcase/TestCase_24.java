@@ -14,11 +14,13 @@ import pageObjects.automationexercise.CartPageObject;
 import pageObjects.automationexercise.CheckoutPageObject;
 import pageObjects.automationexercise.DeleteAccountPageObject;
 import pageObjects.automationexercise.HomePageObject;
-import pageObjects.automationexercise.SignupLoginPageObject;
-import pageObjects.automationexercise.SignupPageObject;
+import pageObjects.automationexercise.OrderPlacedPageObject;
 import pageObjects.automationexercise.PageGenerator;
+import pageObjects.automationexercise.PaymentPageObject;
 import pageObjects.automationexercise.ProductsPageObject;
 import pageObjects.automationexercise.RegisterPageObject;
+import pageObjects.automationexercise.SignupLoginPageObject;
+import pageObjects.automationexercise.SignupPageObject;
 
 public class TestCase_24 extends BaseTest {
 	WebDriver driver;
@@ -31,6 +33,8 @@ public class TestCase_24 extends BaseTest {
 	ProductsPageObject productsPage;
 	CartPageObject cartPage;
 	CheckoutPageObject checkoutPage;
+	PaymentPageObject paymentPage;
+	OrderPlacedPageObject orderPlacedPage;
 	
 	@Parameters({ "browserName", "appUrl" })
 	@BeforeClass
@@ -61,29 +65,29 @@ public class TestCase_24 extends BaseTest {
 		
 		
 		log.info("Testcase_24 - Step 06: Fill all details in Signup and create account");
-		signupLoginPage.enterToTextboxByDataQA(driver, "signup-name", Data.Testcase_23.USERNAME);
+		signupLoginPage.enterToTextboxByDataQA(driver, "signup-name", Data.Testcase_23.USER_NAME);
 		signupLoginPage.enterToTextboxByDataQA(driver, "signup-email", Data.Testcase_23.EMAIL);
 		signupLoginPage.clickToButtonByDataQA(driver, "signup-button");
 		signupPage = PageGenerator.getSignupPage(driver);
 		
 		signupPage.clickToRadioButtonByID(driver, "uniform-id_gender1");
-		signupPage.enterToTextboxByDataQA(driver, "name", Data.Testcase_23.USERNAME);
-		signupPage.enterToTextboxByDataQA(driver, "password", Data.Testcase_23.PASSWORD);
-		signupPage.selectItemInDropdownByName(driver, "days", Data.Testcase_23.DAY);
-		signupPage.selectItemInDropdownByName(driver, "months", Data.Testcase_23.MONTH);
-		signupPage.selectItemInDropdownByName(driver, "years", Data.Testcase_23.YEAR);
+		signupPage.enterToTextboxByDataQA(driver, "name", Data.Testcase_23.USER_NAME);
+		signupPage.enterToTextboxByDataQA(driver, "password", Data.Testcase_01.PASSWORD);
+		signupPage.selectItemInDropdownByName(driver, "days", Data.Testcase_01.DAY);
+		signupPage.selectItemInDropdownByName(driver, "months", Data.Testcase_01.MONTH);
+		signupPage.selectItemInDropdownByName(driver, "years", Data.Testcase_01.YEAR);
 		signupPage.clickToCheckboxByID(driver, "newsletter");
 		signupPage.clickToCheckboxByID(driver, "optin");
-		signupPage.enterToTextboxByDataQA(driver, "first_name", Data.Testcase_23.FIRSTNAME);
-		signupPage.enterToTextboxByDataQA(driver, "last_name", Data.Testcase_23.LASTNAME);
-		signupPage.enterToTextboxByDataQA(driver, "company", Data.Testcase_23.COMPANY);
-		signupPage.enterToTextboxByDataQA(driver, "address", Data.Testcase_23.ADDRESS);
-		signupPage.enterToTextboxByDataQA(driver, "address2", Data.Testcase_23.ADDRESS2);
-		signupPage.selectItemInDropdownByName(driver, "country", Data.Testcase_23.COUNTRY);
-		signupPage.enterToTextboxByDataQA(driver, "state", Data.Testcase_23.STATE);
-		signupPage.enterToTextboxByDataQA(driver, "city", Data.Testcase_23.CITY);
-		signupPage.enterToTextboxByDataQA(driver, "zipcode", Data.Testcase_23.ZIPCODE);
-		signupPage.enterToTextboxByDataQA(driver, "mobile_number", Data.Testcase_23.MOBILENUMBER);
+		signupPage.enterToTextboxByDataQA(driver, "first_name", Data.Testcase_23.FIRST_NAME);
+		signupPage.enterToTextboxByDataQA(driver, "last_name", Data.Testcase_23.LAST_NAME);
+		signupPage.enterToTextboxByDataQA(driver, "company", Data.Testcase_01.COMPANY);
+		signupPage.enterToTextboxByDataQA(driver, "address", Data.Testcase_01.ADDRESS);
+		signupPage.enterToTextboxByDataQA(driver, "address2", Data.Testcase_01.ADDRESS2);
+		signupPage.selectItemInDropdownByName(driver, "country", Data.Testcase_01.COUNTRY);
+		signupPage.enterToTextboxByDataQA(driver, "state", Data.Testcase_01.STATE);
+		signupPage.enterToTextboxByDataQA(driver, "city", Data.Testcase_01.CITY);
+		signupPage.enterToTextboxByDataQA(driver, "zipcode", Data.Testcase_01.ZIPCODE);
+		signupPage.enterToTextboxByDataQA(driver, "mobile_number", Data.Testcase_01.MOBILE_NUMBER);
 		signupPage.clickToButtonByDataQA(driver, "create-account");
 		accountCreatedPage = PageGenerator.getAccountCreatedPage(driver);
 		
@@ -93,7 +97,7 @@ public class TestCase_24 extends BaseTest {
 		homePage = PageGenerator.getHomePage(driver);
 		
 		log.info("Testcase_24 - Step 08: Verify ' Logged in as username' at top");
-		verifyTrue(homePage.isTitleTextDisplayed(driver, "Logged in as " + Data.Testcase_01.USERNAME));
+		verifyTrue(homePage.isTitleTextDisplayed(driver, "Logged in as " + Data.Testcase_23.USER_NAME));
 		
 		log.info("Testcase_24 - Step 09: Click 'Cart' button");
 		homePage.openMenuPage(driver, "Cart");

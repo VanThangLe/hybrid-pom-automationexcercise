@@ -36,7 +36,7 @@ public class TestCase_05 extends BaseTest {
 		verifyTrue(signupLoginPage.isTitleTextDisplayed(driver, "New User Signup!"));
 		
 		log.info("Testcase_05 - Step 03: Enter name and already registered email address");
-		signupLoginPage.enterToTextboxByDataQA(driver, "signup-name", Data.Testcase_01.USERNAME);
+		signupLoginPage.enterToTextboxByDataQA(driver, "signup-name", Data.Testcase_01.USER_NAME);
 		signupLoginPage.enterToTextboxByDataQA(driver, "signup-email", Data.Testcase_01.EMAIL);
 		
 		log.info("Testcase_05 - Step 04: Click 'Signup' button");

@@ -44,7 +44,7 @@ public class TestCase_01 extends BaseTest {
 		verifyTrue(signupLoginPage.isTitleTextDisplayed(driver, "New User Signup!"));
 		
 		log.info("Testcase_01 - Step 03: Enter name and email address");
-		signupLoginPage.enterToTextboxByDataQA(driver, "signup-name", Data.Testcase_01.USERNAME);
+		signupLoginPage.enterToTextboxByDataQA(driver, "signup-name", Data.Testcase_01.USER_NAME);
 		signupLoginPage.enterToTextboxByDataQA(driver, "signup-email", Data.Testcase_01.EMAIL);
 		
 		log.info("Testcase_01 - Step 04: Click 'Signup' button");
@@ -56,7 +56,7 @@ public class TestCase_01 extends BaseTest {
 		
 		log.info("Testcase_01 - Step 06: Fill details: Title, Name, Email, Password, Date of birth");
 		signupPage.clickToRadioButtonByID(driver, "uniform-id_gender1");
-		signupPage.enterToTextboxByDataQA(driver, "name", Data.Testcase_01.USERNAME);
+		signupPage.enterToTextboxByDataQA(driver, "name", Data.Testcase_01.USER_NAME);
 		signupPage.enterToTextboxByDataQA(driver, "password", Data.Testcase_01.PASSWORD);
 		signupPage.selectItemInDropdownByName(driver, "days", Data.Testcase_01.DAY);
 		signupPage.selectItemInDropdownByName(driver, "months", Data.Testcase_01.MONTH);
@@ -69,8 +69,8 @@ public class TestCase_01 extends BaseTest {
 		signupPage.clickToCheckboxByID(driver, "optin");
 		
 		log.info("Testcase_01 - Step 09: Fill details: First name, Last name, Company, Address, Address2, Country, State, City, Zipcode, Mobile Number");
-		signupPage.enterToTextboxByDataQA(driver, "first_name", Data.Testcase_01.FIRSTNAME);
-		signupPage.enterToTextboxByDataQA(driver, "last_name", Data.Testcase_01.LASTNAME);
+		signupPage.enterToTextboxByDataQA(driver, "first_name", Data.Testcase_01.FIRST_NAME);
+		signupPage.enterToTextboxByDataQA(driver, "last_name", Data.Testcase_01.LAST_NAME);
 		signupPage.enterToTextboxByDataQA(driver, "company", Data.Testcase_01.COMPANY);
 		signupPage.enterToTextboxByDataQA(driver, "address", Data.Testcase_01.ADDRESS);
 		signupPage.enterToTextboxByDataQA(driver, "address2", Data.Testcase_01.ADDRESS2);
@@ -78,7 +78,7 @@ public class TestCase_01 extends BaseTest {
 		signupPage.enterToTextboxByDataQA(driver, "state", Data.Testcase_01.STATE);
 		signupPage.enterToTextboxByDataQA(driver, "city", Data.Testcase_01.CITY);
 		signupPage.enterToTextboxByDataQA(driver, "zipcode", Data.Testcase_01.ZIPCODE);
-		signupPage.enterToTextboxByDataQA(driver, "mobile_number", Data.Testcase_01.MOBILENUMBER);
+		signupPage.enterToTextboxByDataQA(driver, "mobile_number", Data.Testcase_01.MOBILE_NUMBER);
 		
 		log.info("Testcase_01 - Step 10: Click 'Create Account button'");
 		signupPage.clickToButtonByDataQA(driver, "create-account");
@@ -92,7 +92,7 @@ public class TestCase_01 extends BaseTest {
 		homePage = PageGenerator.getHomePage(driver);
 		
 		log.info("Testcase_01 - Step 13: Verify that 'Logged in as username' is visible");
-		verifyTrue(homePage.isTitleTextDisplayed(driver, "Logged in as " + Data.Testcase_01.USERNAME));
+		verifyTrue(homePage.isTitleTextDisplayed(driver, "Logged in as " + Data.Testcase_01.USER_NAME));
 		
 		log.info("Testcase_01 - Step 14: Click 'Delete Account' button");
 		homePage.openMenuPage(driver, "Delete Account");

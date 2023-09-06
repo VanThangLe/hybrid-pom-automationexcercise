@@ -33,16 +33,16 @@ public class TestCase_12 extends BaseTest {
 		productsPage = PageGenerator.getProductsPage(driver);
 		
 		log.info("Testcase_12 - Step 02: Hover over first product and click 'Add to cart'");
-		productsPage.hoverToElement(driver, "");
+		productsPage.addProductToCartInProductLists(driver, "1");
 		
 		log.info("Testcase_12 - Step 03: Click 'Continue Shopping' button");
-		
+		productsPage.clickToButtonByTitle(driver, "Continue Shopping");
 		
 		log.info("Testcase_12 - Step 04: Hover over second product and click 'Add to cart'");
-		
+		productsPage.addProductToCartInProductLists(driver, "2");
 		
 		log.info("Testcase_12 - Step 05: Click 'View Cart' button");
-		
+		productsPage.clickToButtonByTitle(driver, "View Cart");
 		
 		log.info("Testcase_12 - Step 06: Verify both products are added to Cart");
 		

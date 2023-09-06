@@ -38,7 +38,7 @@ public class TestCase_02 extends BaseTest {
 		verifyTrue(signupLoginPage.isTitleTextDisplayed(driver, "Login to your account"));
 		
 		log.info("Testcase_02 - Step 03: Enter correct email address and password");
-		signupLoginPage.enterToTextboxByDataQA(driver, "login-email", Data.Testcase_01.USERNAME);
+		signupLoginPage.enterToTextboxByDataQA(driver, "login-email", Data.Testcase_01.USER_NAME);
 		signupLoginPage.enterToTextboxByDataQA(driver, "login-password", Data.Testcase_01.PASSWORD);
 		
 		log.info("Testcase_02 - Step 04: Click 'login' button");
@@ -46,7 +46,7 @@ public class TestCase_02 extends BaseTest {
 		homePage = PageGenerator.getHomePage(driver);
 		
 		log.info("Testcase_02 - Step 05: Verify that 'Logged in as username' is visible");
-		verifyTrue(homePage.isTitleTextDisplayed(driver, "Logged in as " + Data.Testcase_01.USERNAME));
+		verifyTrue(homePage.isTitleTextDisplayed(driver, "Logged in as " + Data.Testcase_01.USER_NAME));
 		
 		log.info("Testcase_02 - Step 06: Click 'Delete Account' button");
 		homePage.openMenuPage(driver, "Delete Account");

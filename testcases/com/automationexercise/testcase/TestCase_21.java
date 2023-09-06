@@ -45,7 +45,7 @@ public class TestCase_21 extends BaseTest {
 		verifyTrue(productsDetailPage.isTitleTextDisplayed(driver, "WRITE YOUR REVIEW"));
 		
 		log.info("Testcase_21 - Step 05: Enter name, email and review");
-		productsDetailPage.enterToTextboxByIDName(driver, "name", Data.Testcase_01.USERNAME);
+		productsDetailPage.enterToTextboxByIDName(driver, "name", Data.Testcase_01.USER_NAME);
 		productsDetailPage.enterToTextboxByIDName(driver, "email", Data.Testcase_01.EMAIL);
 		productsDetailPage.enterToTextboxByIDName(driver, "review", Data.Testcase_21.REVIEW);
 		

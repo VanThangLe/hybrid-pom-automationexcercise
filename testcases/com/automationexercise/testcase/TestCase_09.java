@@ -36,7 +36,7 @@ public class TestCase_09 extends BaseTest {
 		verifyTrue(productsPage.isTitleTextDisplayed(driver, "ALL PRODUCTS"));
 		
 		log.info("Testcase_09 - Step 03: Enter product name in search input and click search button");
-		productsPage.enterToTextboxByIDName(driver, "search_product", Data.Testcase_09.SEARCHTEXT);
+		productsPage.enterToTextboxByIDName(driver, "search_product", Data.Testcase_09.SEARCH_TEXT);
 		productsPage.clickToButtonByIDName(driver, "submit_search");
 		
 		log.info("Testcase_09 - Step 04: Verify 'SEARCHED PRODUCTS' is visible");

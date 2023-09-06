@@ -15,6 +15,7 @@ import pageObjects.automationexercise.HomePageObject;
 import pageObjects.automationexercise.SignupLoginPageObject;
 import pageObjects.automationexercise.SignupPageObject;
 import pageObjects.automationexercise.PageGenerator;
+import pageObjects.automationexercise.PaymentPageObject;
 import pageObjects.automationexercise.ProductsPageObject;
 import pageObjects.automationexercise.RegisterPageObject;
 
@@ -29,6 +30,7 @@ public class TestCase_14 extends BaseTest {
 	CartPageObject cartPage;
 	CheckoutPageObject checkoutPage;
 	DeleteAccountPageObject deleteAccountPage;
+	PaymentPageObject paymentPage;
 	
 	@Parameters({ "browserName", "appUrl" })
 	@BeforeClass

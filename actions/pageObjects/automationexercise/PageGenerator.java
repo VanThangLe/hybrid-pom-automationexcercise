@@ -50,4 +50,12 @@ public class PageGenerator {
 	public static CheckoutPageObject getCheckoutPage(WebDriver driver) {
 		return new CheckoutPageObject(driver);
 	}
+	
+	public static PaymentPageObject getPaymentPage(WebDriver driver) {
+		return new PaymentPageObject(driver);
+	}
+	
+	public static OrderPlacedPageObject getOrderPlacedPage(WebDriver driver) {
+		return new OrderPlacedPageObject(driver);
+	}
 }

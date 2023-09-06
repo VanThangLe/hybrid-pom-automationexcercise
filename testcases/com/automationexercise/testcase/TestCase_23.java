@@ -47,29 +47,29 @@ public class TestCase_23 extends BaseTest {
 		signupLoginPage = PageGenerator.getSignupLoginPage(driver);
 		
 		log.info("Testcase_23 - Step 02: Fill all details in Signup and create account");
-		signupLoginPage.enterToTextboxByDataQA(driver, "signup-name", Data.Testcase_23.USERNAME);
+		signupLoginPage.enterToTextboxByDataQA(driver, "signup-name", Data.Testcase_23.USER_NAME);
 		signupLoginPage.enterToTextboxByDataQA(driver, "signup-email", Data.Testcase_23.EMAIL);
 		signupLoginPage.clickToButtonByDataQA(driver, "signup-button");
 		signupPage = PageGenerator.getSignupPage(driver);
 		
 		signupPage.clickToRadioButtonByID(driver, "uniform-id_gender1");
-		signupPage.enterToTextboxByDataQA(driver, "name", Data.Testcase_23.USERNAME);
-		signupPage.enterToTextboxByDataQA(driver, "password", Data.Testcase_23.PASSWORD);
-		signupPage.selectItemInDropdownByName(driver, "days", Data.Testcase_23.DAY);
-		signupPage.selectItemInDropdownByName(driver, "months", Data.Testcase_23.MONTH);
-		signupPage.selectItemInDropdownByName(driver, "years", Data.Testcase_23.YEAR);
+		signupPage.enterToTextboxByDataQA(driver, "name", Data.Testcase_23.USER_NAME);
+		signupPage.enterToTextboxByDataQA(driver, "password", Data.Testcase_01.PASSWORD);
+		signupPage.selectItemInDropdownByName(driver, "days", Data.Testcase_01.DAY);
+		signupPage.selectItemInDropdownByName(driver, "months", Data.Testcase_01.MONTH);
+		signupPage.selectItemInDropdownByName(driver, "years", Data.Testcase_01.YEAR);
 		signupPage.clickToCheckboxByID(driver, "newsletter");
 		signupPage.clickToCheckboxByID(driver, "optin");
-		signupPage.enterToTextboxByDataQA(driver, "first_name", Data.Testcase_23.FIRSTNAME);
-		signupPage.enterToTextboxByDataQA(driver, "last_name", Data.Testcase_23.LASTNAME);
-		signupPage.enterToTextboxByDataQA(driver, "company", Data.Testcase_23.COMPANY);
-		signupPage.enterToTextboxByDataQA(driver, "address", Data.Testcase_23.ADDRESS);
-		signupPage.enterToTextboxByDataQA(driver, "address2", Data.Testcase_23.ADDRESS2);
-		signupPage.selectItemInDropdownByName(driver, "country", Data.Testcase_23.COUNTRY);
-		signupPage.enterToTextboxByDataQA(driver, "state", Data.Testcase_23.STATE);
-		signupPage.enterToTextboxByDataQA(driver, "city", Data.Testcase_23.CITY);
-		signupPage.enterToTextboxByDataQA(driver, "zipcode", Data.Testcase_23.ZIPCODE);
-		signupPage.enterToTextboxByDataQA(driver, "mobile_number", Data.Testcase_23.MOBILENUMBER);
+		signupPage.enterToTextboxByDataQA(driver, "first_name", Data.Testcase_23.FIRST_NAME);
+		signupPage.enterToTextboxByDataQA(driver, "last_name", Data.Testcase_23.LAST_NAME);
+		signupPage.enterToTextboxByDataQA(driver, "company", Data.Testcase_01.COMPANY);
+		signupPage.enterToTextboxByDataQA(driver, "address", Data.Testcase_01.ADDRESS);
+		signupPage.enterToTextboxByDataQA(driver, "address2", Data.Testcase_01.ADDRESS2);
+		signupPage.selectItemInDropdownByName(driver, "country", Data.Testcase_01.COUNTRY);
+		signupPage.enterToTextboxByDataQA(driver, "state", Data.Testcase_01.STATE);
+		signupPage.enterToTextboxByDataQA(driver, "city", Data.Testcase_01.CITY);
+		signupPage.enterToTextboxByDataQA(driver, "zipcode", Data.Testcase_01.ZIPCODE);
+		signupPage.enterToTextboxByDataQA(driver, "mobile_number", Data.Testcase_01.MOBILE_NUMBER);
 		signupPage.clickToButtonByDataQA(driver, "create-account");
 		accountCreatedPage = PageGenerator.getAccountCreatedPage(driver);
 		
@@ -79,7 +79,7 @@ public class TestCase_23 extends BaseTest {
 		homePage = PageGenerator.getHomePage(driver);
 		
 		log.info("Testcase_23 - Step 04: Verify ' Logged in as username' at top");
-		verifyTrue(homePage.isTitleTextDisplayed(driver, "Logged in as " + Data.Testcase_23.USERNAME));
+		verifyTrue(homePage.isTitleTextDisplayed(driver, "Logged in as " + Data.Testcase_23.USER_NAME));
 		
 		log.info("Testcase_23 - Step 05: Add products to cart");
 		homePage.addProductToCartInProductLists(driver, "1");
@@ -97,22 +97,22 @@ public class TestCase_23 extends BaseTest {
 		checkoutPage = PageGenerator.getCheckoutPage(driver);
 		
 		log.info("Testcase_23 - Step 09: Verify that the delivery address is same address filled at the time registration of account");
-		verifyEquals(checkoutPage.getDeliveryAddressValue(driver, "2"), Data.Testcase_23.FIRSTNAME + " " + Data.Testcase_23.LASTNAME);
-		verifyEquals(checkoutPage.getDeliveryAddressValue(driver, "3"), Data.Testcase_23.COMPANY);
-		verifyEquals(checkoutPage.getDeliveryAddressValue(driver, "4"), Data.Testcase_23.ADDRESS);
-		verifyEquals(checkoutPage.getDeliveryAddressValue(driver, "5"), Data.Testcase_23.ADDRESS2);
-		verifyEquals(checkoutPage.getDeliveryAddressValue(driver, "6"), Data.Testcase_23.CITY + " " + Data.Testcase_23.STATE + " " + Data.Testcase_23.ZIPCODE);
-		verifyEquals(checkoutPage.getDeliveryAddressValue(driver, "7"), Data.Testcase_23.COUNTRY);
-		verifyEquals(checkoutPage.getDeliveryAddressValue(driver, "8"), Data.Testcase_23.MOBILENUMBER);
+		verifyEquals(checkoutPage.getDeliveryAddressValue(driver, "2"), Data.Testcase_23.FIRST_NAME + " " + Data.Testcase_23.LAST_NAME);
+		verifyEquals(checkoutPage.getDeliveryAddressValue(driver, "3"), Data.Testcase_01.COMPANY);
+		verifyEquals(checkoutPage.getDeliveryAddressValue(driver, "4"), Data.Testcase_01.ADDRESS);
+		verifyEquals(checkoutPage.getDeliveryAddressValue(driver, "5"), Data.Testcase_01.ADDRESS2);
+		verifyEquals(checkoutPage.getDeliveryAddressValue(driver, "6"), Data.Testcase_01.CITY + " " + Data.Testcase_01.STATE + " " + Data.Testcase_01.ZIPCODE);
+		verifyEquals(checkoutPage.getDeliveryAddressValue(driver, "7"), Data.Testcase_01.COUNTRY);
+		verifyEquals(checkoutPage.getDeliveryAddressValue(driver, "8"), Data.Testcase_01.MOBILE_NUMBER);
 		
 		log.info("Testcase_23 - Step 10: Verify that the billing address is same address filled at the time registration of account");
-		verifyEquals(checkoutPage.getBillingAddressValue(driver, "2"), Data.Testcase_23.FIRSTNAME + " " + Data.Testcase_23.LASTNAME);
-		verifyEquals(checkoutPage.getBillingAddressValue(driver, "3"), Data.Testcase_23.COMPANY);
-		verifyEquals(checkoutPage.getBillingAddressValue(driver, "4"), Data.Testcase_23.ADDRESS);
-		verifyEquals(checkoutPage.getBillingAddressValue(driver, "5"), Data.Testcase_23.ADDRESS2);
-		verifyEquals(checkoutPage.getBillingAddressValue(driver, "6"), Data.Testcase_23.CITY + " " + Data.Testcase_23.STATE + " " + Data.Testcase_23.ZIPCODE);
-		verifyEquals(checkoutPage.getBillingAddressValue(driver, "7"), Data.Testcase_23.COUNTRY);
-		verifyEquals(checkoutPage.getBillingAddressValue(driver, "8"), Data.Testcase_23.MOBILENUMBER);
+		verifyEquals(checkoutPage.getBillingAddressValue(driver, "2"), Data.Testcase_23.FIRST_NAME + " " + Data.Testcase_23.LAST_NAME);
+		verifyEquals(checkoutPage.getBillingAddressValue(driver, "3"), Data.Testcase_01.COMPANY);
+		verifyEquals(checkoutPage.getBillingAddressValue(driver, "4"), Data.Testcase_01.ADDRESS);
+		verifyEquals(checkoutPage.getBillingAddressValue(driver, "5"), Data.Testcase_01.ADDRESS2);
+		verifyEquals(checkoutPage.getBillingAddressValue(driver, "6"), Data.Testcase_01.CITY + " " + Data.Testcase_01.STATE + " " + Data.Testcase_01.ZIPCODE);
+		verifyEquals(checkoutPage.getBillingAddressValue(driver, "7"), Data.Testcase_01.COUNTRY);
+		verifyEquals(checkoutPage.getBillingAddressValue(driver, "8"), Data.Testcase_01.MOBILE_NUMBER);
 		
 		log.info("Testcase_23 - Step 11: Click 'Delete Account' button");
 		checkoutPage.openMenuPage(driver, "Delete Account");

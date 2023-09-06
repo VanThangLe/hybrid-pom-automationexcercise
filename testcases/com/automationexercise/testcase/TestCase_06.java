@@ -36,13 +36,13 @@ public class TestCase_06 extends BaseTest {
 		verifyTrue(contactUsPage.isTitleTextDisplayed(driver, "GET IN TOUCH"));
 		
 		log.info("Testcase_06 - Step 03: Enter name, email, subject and message");
-		contactUsPage.enterToTextboxByDataQA(driver, "name", Data.Testcase_01.USERNAME);
+		contactUsPage.enterToTextboxByDataQA(driver, "name", Data.Testcase_01.USER_NAME);
 		contactUsPage.enterToTextboxByDataQA(driver, "email", Data.Testcase_01.EMAIL);
 		contactUsPage.enterToTextboxByDataQA(driver, "subject", Data.Testcase_06.SUBJECT);
 		contactUsPage.enterToTextboxByDataQA(driver, "message", Data.Testcase_06.MESSAGE);
 		
 		log.info("Testcase_06 - Step 04: Upload file");
-		contactUsPage.uploadImage(driver,  Data.Testcase_06.IMAGEPATH);
+		contactUsPage.uploadImage(driver,  Data.Testcase_06.IMAGE_PATH);
 		
 		log.info("Testcase_06 - Step 05: Click 'Submit' button");
 		contactUsPage.clickToButtonByDataQA(driver, "submit-button");
