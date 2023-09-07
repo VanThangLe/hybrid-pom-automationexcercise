@@ -37,26 +37,37 @@ public class Data extends BaseTest{
 		public static final String QUANTITY = "4";
 	}
 	
+	public static class Testcase_14 {
+		public static final String USER_NAME = "Automation FC 02";
+		public static final String EMAIL = "automation02@gmail.com";
+		public static final String LAST_NAME = "FC 02";
+		public static final String MESSAGE = "Ship on workday!";
+		public static final String NAME_ON_CARD = "AUTOMATION FC 02";
+		public static final String CARD_NUMBER = "111213141516";
+		public static final String CVC = "311";
+		public static final String EXPIRATION_MONTH = "12";
+		public static final String EXPIRATION_YEAR = "2025";
+	}
+	
+	public static class Testcase_15 {
+		public static final String USER_NAME = "Automation FC 03";
+		public static final String EMAIL = "automation03@gmail.com";
+		public static final String LAST_NAME = "FC 03";
+	}
+	
 	public static class Testcase_21 {
 		public static final String REVIEW= "Goooood!";
 	}
 	
 	public static class Testcase_23 {
-		public static final String USER_NAME = "Automation FC 02";
-		public static final String EMAIL = "automation02@gmail.com";
-		public static final String LAST_NAME = "FC 02";
-		public static final String FIRST_NAME = "Automation";
+		public static final String USER_NAME = "Automation FC 03";
+		public static final String EMAIL = "automation03@gmail.com";
+		public static final String LAST_NAME = "FC 03";
 	}
 	
 	public static class Testcase_24 {
 		public static final String USER_NAME = "Automation FC 02";
 		public static final String EMAIL = "automation02@gmail.com";
 		public static final String LAST_NAME = "FC 02";
-		public static final String FIRST_NAME = "Automation";
-		public static final String NAME_ON_CARD = "";
-		public static final String CARD_NUMBER = "";
-		public static final String CVC = "";
-		public static final String EXPIRATION_MONTH = "";
-		public static final String EXPIRATION_YEAR = "";
 	}
 }

@@ -39,7 +39,7 @@ public class TestCase_06 extends BaseTest {
 		contactUsPage.enterToTextboxByDataQA(driver, "name", Data.Testcase_01.USER_NAME);
 		contactUsPage.enterToTextboxByDataQA(driver, "email", Data.Testcase_01.EMAIL);
 		contactUsPage.enterToTextboxByDataQA(driver, "subject", Data.Testcase_06.SUBJECT);
-		contactUsPage.enterToTextboxByDataQA(driver, "message", Data.Testcase_06.MESSAGE);
+		contactUsPage.enterToTextareaByIDName(driver, "message", Data.Testcase_06.MESSAGE);
 		
 		log.info("Testcase_06 - Step 04: Upload file");
 		contactUsPage.uploadImage(driver,  Data.Testcase_06.IMAGE_PATH);

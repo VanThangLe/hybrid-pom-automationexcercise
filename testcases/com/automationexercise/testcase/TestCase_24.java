@@ -80,7 +80,7 @@ public class TestCase_24 extends BaseTest {
 		signupPage.selectItemInDropdownByName(driver, "years", Data.Testcase_01.YEAR);
 		signupPage.clickToCheckboxByID(driver, "newsletter");
 		signupPage.clickToCheckboxByID(driver, "optin");
-		signupPage.enterToTextboxByDataQA(driver, "first_name", Data.Testcase_23.FIRST_NAME);
+		signupPage.enterToTextboxByDataQA(driver, "first_name", Data.Testcase_01.FIRST_NAME);
 		signupPage.enterToTextboxByDataQA(driver, "last_name", Data.Testcase_23.LAST_NAME);
 		signupPage.enterToTextboxByDataQA(driver, "company", Data.Testcase_01.COMPANY);
 		signupPage.enterToTextboxByDataQA(driver, "address", Data.Testcase_01.ADDRESS);

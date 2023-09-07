@@ -579,13 +579,13 @@ public class BasePage {
 	
 	public void addProductToCartInProductLists(WebDriver driver, String productIndex) {
 		hoverToElement(driver, BasePageUI.PRODUCT_LISTS, productIndex);
-		waitForElementVisible(driver, BasePageUI.SINGLE_PRODUCTS, productIndex);
-		clickToElement(driver, BasePageUI.SINGLE_PRODUCTS, productIndex);
+		waitForElementVisible(driver, BasePageUI.SINGLE_PRODUCTS_IN_LIST, productIndex);
+		clickToElement(driver, BasePageUI.SINGLE_PRODUCTS_IN_LIST, productIndex);
 	}
 	
 	public void clickToViewProduct(WebDriver driver, String productIndex) {
-		waitForElementClickAble(driver, BasePageUI.VIEW_PRODUCT_XPATH, productIndex);
-		clickToElement(driver, BasePageUI.VIEW_PRODUCT_XPATH, productIndex);
+		waitForElementClickAble(driver, BasePageUI.VIEW_PRODUCT_IN_LIST, productIndex);
+		clickToElement(driver, BasePageUI.VIEW_PRODUCT_IN_LIST, productIndex);
 	}
 
 	public boolean isSearchedProductsDisplayed(WebDriver driver, String productIndex) {
@@ -609,13 +609,13 @@ public class BasePage {
 	}
 	
 	public String getProductNameInList(WebDriver driver, String productIndex) {
-		waitForElementVisible(driver, BasePageUI.PRODUCT_NAME, productIndex);
-		return getElementText(driver, BasePageUI.PRODUCT_NAME, productIndex);
+		waitForElementVisible(driver, BasePageUI.PRODUCT_NAME_IN_LIST, productIndex);
+		return getElementText(driver, BasePageUI.PRODUCT_NAME_IN_LIST, productIndex);
 	}
 	
 	public String getProductPriceInList(WebDriver driver, String productIndex) {
-		waitForElementVisible(driver, BasePageUI.PRODUCT_PRICE, productIndex);
-		return getElementText(driver, BasePageUI.PRODUCT_PRICE, productIndex);
+		waitForElementVisible(driver, BasePageUI.PRODUCT_PRICE_IN_LIST, productIndex);
+		return getElementText(driver, BasePageUI.PRODUCT_PRICE_IN_LIST, productIndex);
 	}
 	
 	public void getWindowHanle(WebDriver driver) {

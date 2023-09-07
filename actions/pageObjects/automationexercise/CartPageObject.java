@@ -17,6 +17,11 @@ public class CartPageObject extends BasePage {
 		return getElementText(driver, CartPageUI.PRODUCT_LINK, productIndex, value);
 	}
 	
+	public void clickToDeleteProductOutOfCart(String productIndex, String value) {
+		waitForElementClickAble(driver, CartPageUI.PRODUCT_LINK, productIndex, value);
+		clickToElement(driver, CartPageUI.PRODUCT_LINK, productIndex, value);
+	}
+	
 	public String getProductPriceInCart(String productIndex, String value) {
 		waitForElementVisible(driver, CartPageUI.PRODUCT_PRICE, productIndex, value);
 		return getElementText(driver, CartPageUI.PRODUCT_PRICE, productIndex, value);

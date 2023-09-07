@@ -60,7 +60,7 @@ public class TestCase_23 extends BaseTest {
 		signupPage.selectItemInDropdownByName(driver, "years", Data.Testcase_01.YEAR);
 		signupPage.clickToCheckboxByID(driver, "newsletter");
 		signupPage.clickToCheckboxByID(driver, "optin");
-		signupPage.enterToTextboxByDataQA(driver, "first_name", Data.Testcase_23.FIRST_NAME);
+		signupPage.enterToTextboxByDataQA(driver, "first_name", Data.Testcase_01.FIRST_NAME);
 		signupPage.enterToTextboxByDataQA(driver, "last_name", Data.Testcase_23.LAST_NAME);
 		signupPage.enterToTextboxByDataQA(driver, "company", Data.Testcase_01.COMPANY);
 		signupPage.enterToTextboxByDataQA(driver, "address", Data.Testcase_01.ADDRESS);
@@ -94,12 +94,11 @@ public class TestCase_23 extends BaseTest {
 		verifyTrue(cartPage.isTitleTextDisplayed(driver, "Shopping Cart"));
 		
 		log.info("Testcase_23 - Step 08: Click Proceed To Checkout");
-		cartPage.getWindowHanle(driver);
 		cartPage.clickToButtonByTitle(driver, "Proceed To Checkout");
 		checkoutPage = PageGenerator.getCheckoutPage(driver);
 		
 		log.info("Testcase_23 - Step 09: Verify that the delivery address is same address filled at the time registration of account");
-		verifyEquals(checkoutPage.getDeliveryAddressValue(driver, "2"), Data.Testcase_23.FIRST_NAME + " " + Data.Testcase_23.LAST_NAME);
+		verifyEquals(checkoutPage.getDeliveryAddressValue(driver, "2"), Data.Testcase_01.FIRST_NAME + " " + Data.Testcase_23.LAST_NAME);
 		verifyEquals(checkoutPage.getDeliveryAddressValue(driver, "3"), Data.Testcase_01.COMPANY);
 		verifyEquals(checkoutPage.getDeliveryAddressValue(driver, "4"), Data.Testcase_01.ADDRESS);
 		verifyEquals(checkoutPage.getDeliveryAddressValue(driver, "5"), Data.Testcase_01.ADDRESS2);
@@ -108,7 +107,7 @@ public class TestCase_23 extends BaseTest {
 		verifyEquals(checkoutPage.getDeliveryAddressValue(driver, "8"), Data.Testcase_01.MOBILE_NUMBER);
 		
 		log.info("Testcase_23 - Step 10: Verify that the billing address is same address filled at the time registration of account");
-		verifyEquals(checkoutPage.getBillingAddressValue(driver, "2"), Data.Testcase_23.FIRST_NAME + " " + Data.Testcase_23.LAST_NAME);
+		verifyEquals(checkoutPage.getBillingAddressValue(driver, "2"), Data.Testcase_01.FIRST_NAME + " " + Data.Testcase_23.LAST_NAME);
 		verifyEquals(checkoutPage.getBillingAddressValue(driver, "3"), Data.Testcase_01.COMPANY);
 		verifyEquals(checkoutPage.getBillingAddressValue(driver, "4"), Data.Testcase_01.ADDRESS);
 		verifyEquals(checkoutPage.getBillingAddressValue(driver, "5"), Data.Testcase_01.ADDRESS2);
