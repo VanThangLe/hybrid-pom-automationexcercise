@@ -24,7 +24,6 @@ public class TestCase_07 extends BaseTest {
 		homePage = PageGenerator.getHomePage(driver);
 	}
 	
-	
 	@Test(description = "Test Case 7: Verify Test Cases Page")
 	public void Testcase_07() {
 		log.info("Testcase_07 - Step 01: Click on 'Test Cases' button");

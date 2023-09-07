@@ -17,6 +17,7 @@ encoding//actions/pageObjects/automationexercise/SignupLoginPageObject.java=UTF-
 encoding//actions/pageObjects/automationexercise/SignupPageObject.java=UTF-8
 encoding//actions/pageObjects/automationexercise/TestCasesPageObject.java=UTF-8
 encoding//interfaces/pageUIs/automationexercise/BasePageUI.java=UTF-8
+encoding//interfaces/pageUIs/automationexercise/CartPageUI.java=UTF-8
 encoding//interfaces/pageUIs/automationexercise/ContactUsPageUI.java=UTF-8
 encoding//interfaces/pageUIs/automationexercise/HomePageUI.java=UTF-8
 encoding//interfaces/pageUIs/automationexercise/ProductsDetailPageUI.java=UTF-8

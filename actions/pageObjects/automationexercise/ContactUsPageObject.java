@@ -12,8 +12,8 @@ public class ContactUsPageObject extends BasePage {
 		this.driver = _driver;
 	}
 
-	public void clickToButtonByXpath() {
-		waitForElementClickAble(driver, ContactUsPageUI.BUTTON_XPATH);
-		clickToElement(driver, ContactUsPageUI.BUTTON_XPATH);
+	public void clickToHomeButton() {
+		waitForElementClickAble(driver, ContactUsPageUI.HOME_BUTTON);
+		clickToElement(driver, ContactUsPageUI.HOME_BUTTON);
 	}
 }

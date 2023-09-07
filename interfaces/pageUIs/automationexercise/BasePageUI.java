@@ -13,12 +13,12 @@ public class BasePageUI {
 	public static final String TITLE_TEXT = "//*[contains(text(), '%s')]";
 	public static final String TEXTAREA_BY_ID_NAME = "//textarea[@id='%s']";
 	
-	public static final String PRODUCT_LISTS = "//div[@id='cartModal']/following-sibling::div['%s']";
-	public static final String SINGLE_PRODUCTS = PRODUCT_LISTS + "//div[@class='product-overlay']//a";
-	public static final String VIEW_PRODUCT_XPATH = "//a[@href='/product_details/%s']";
+	public static final String PRODUCT_LISTS = "//div[@id='cartModal']/following-sibling::div[%s]";
+	public static final String SINGLE_PRODUCTS = "//div[@id='cartModal']/following-sibling::div[%s]//div[@class='product-overlay']//a";
+	public static final String VIEW_PRODUCT_XPATH = "//div[@id='cartModal']/following-sibling::div[%s]//a[contains(text(),'View Product')]";
+	public static final String PRODUCT_NAME = "//div[@id='cartModal']/following-sibling::div[%s]//div[@class='productinfo text-center']//p";
+	public static final String PRODUCT_PRICE = "//div[@id='cartModal']/following-sibling::div[%s]//div[@class='productinfo text-center']//h2";
 	
-	public static final String CONTINUE_SHOPPING_BUTTON = "//button[contains(text(),'Continue Shopping')]";
-	
-	public static final String DELIVERY_ADDRESS = "//ul[@id='address_delivery']/li['%s']";
-	public static final String BILLING_ADDRESS = "//ul[@id='address_invoice']/li['%s']";
+	public static final String DELIVERY_ADDRESS = "//ul[@id='address_delivery']/li[%s]";
+	public static final String BILLING_ADDRESS = "//ul[@id='address_invoice']/li[%s]";
 }

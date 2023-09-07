@@ -33,6 +33,10 @@ public class Data extends BaseTest{
 		public static final String SEARCH_TEXT = "Top";
 	}
 	
+	public static class Testcase_13 {
+		public static final String QUANTITY = "4";
+	}
+	
 	public static class Testcase_21 {
 		public static final String REVIEW= "Goooood!";
 	}

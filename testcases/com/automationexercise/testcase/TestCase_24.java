@@ -50,6 +50,7 @@ public class TestCase_24 extends BaseTest {
 		homePage.addProductToCartInProductLists(driver, "1");
 		
 		log.info("Testcase_24 - Step 02: Click 'Cart' button");
+		homePage.getWindowHanle(driver);
 		homePage.clickToButtonByTitle(driver, "Continue Shopping");
 		homePage.openMenuPage(driver, "Cart");
 		cartPage = PageGenerator.getCartPage(driver);
@@ -58,6 +59,7 @@ public class TestCase_24 extends BaseTest {
 		verifyTrue(cartPage.isTitleTextDisplayed(driver, "Shopping Cart"));
 		
 		log.info("Testcase_24 - Step 04: Click Proceed To Checkout");
+		cartPage.getWindowHanle(driver);
 		cartPage.clickToButtonByTitle(driver, "Proceed To Checkout");
 		checkoutPage = PageGenerator.getCheckoutPage(driver);
 		
@@ -104,6 +106,7 @@ public class TestCase_24 extends BaseTest {
 		cartPage = PageGenerator.getCartPage(driver);
 		
 		log.info("Testcase_24 - Step 10: Click 'Proceed To Checkout' button");
+		cartPage.getWindowHanle(driver);
 		cartPage.clickToButtonByTitle(driver, "Proceed To Checkout");
 		checkoutPage = PageGenerator.getCheckoutPage(driver);
 		

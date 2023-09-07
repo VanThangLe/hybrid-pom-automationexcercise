@@ -36,13 +36,14 @@ public class TestCase_08 extends BaseTest {
 		verifyTrue(productsPage.isTitleTextDisplayed(driver, "ALL PRODUCTS"));
 		
 		log.info("Testcase_08 - Step 03: The products list is visible");
-		productsPage.isProductsVisible();
+		verifyTrue(productsPage.isProductsVisible());
 		
 		log.info("Testcase_08 - Step 04: Click on 'View Product' of first product");
 		productsPage.clickToViewProduct(driver, "1");
+		productsDetailPage = PageGenerator.getProductsDetailPage(driver);
 		
 		log.info("Testcase_08 - Step 05: User is landed to product detail page");
-		productsDetailPage = PageGenerator.getProductsDetailPage(driver);
+		verifyTrue(productsDetailPage.isTitleTextDisplayed(driver, "WRITE YOUR REVIEW"));
 		
 		log.info("Testcase_08 - Step 06: Verify that detail is visible: product name, category, price, availability, condition, brand");
 		verifyTrue(productsDetailPage.isProductsNameVisible());

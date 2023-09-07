@@ -594,7 +594,6 @@ public class BasePage {
 	}
 	
 	public void clickToButtonByTitle(WebDriver driver, String titleButton) {
-		driver.getWindowHandle();
 		waitForElementClickAble(driver, BasePageUI.TITLE_TEXT, titleButton);
 		clickToElement(driver, BasePageUI.TITLE_TEXT, titleButton);
 	}
@@ -607,5 +606,19 @@ public class BasePage {
 	public String getBillingAddressValue(WebDriver driver, String addressAttribute) {
 		waitForElementVisible(driver, BasePageUI.BILLING_ADDRESS, addressAttribute);
 		return getElementText(driver, BasePageUI.BILLING_ADDRESS, addressAttribute);
+	}
+	
+	public String getProductNameInList(WebDriver driver, String productIndex) {
+		waitForElementVisible(driver, BasePageUI.PRODUCT_NAME, productIndex);
+		return getElementText(driver, BasePageUI.PRODUCT_NAME, productIndex);
+	}
+	
+	public String getProductPriceInList(WebDriver driver, String productIndex) {
+		waitForElementVisible(driver, BasePageUI.PRODUCT_PRICE, productIndex);
+		return getElementText(driver, BasePageUI.PRODUCT_PRICE, productIndex);
+	}
+	
+	public void getWindowHanle(WebDriver driver) {
+		driver.getWindowHandle();
 	}
 }

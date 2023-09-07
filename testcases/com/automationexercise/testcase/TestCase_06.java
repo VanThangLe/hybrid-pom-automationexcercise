@@ -54,7 +54,7 @@ public class TestCase_06 extends BaseTest {
 		verifyTrue(contactUsPage.isTitleTextDisplayed(driver, "Success! Your details have been submitted successfully."));
 		
 		log.info("Testcase_06 - Step 08: Click 'Home' button and verify that landed to home page successfully");
-		contactUsPage.clickToButtonByXpath();
+		contactUsPage.clickToHomeButton();
 		homePage = PageGenerator.getHomePage(driver);
 		verifyTrue(homePage.isTitleTextDisplayed("Full-Fledged practice website for Automation Engineers"));
 	}
