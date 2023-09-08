@@ -1,9 +1,8 @@
 package com.automationexercise.data;
 
-import commons.BaseTest;
 import commons.GlobalConstants;
 
-public class Data extends BaseTest{
+public class Data {
 	public static class Testcase_01 {
 		public static final String USER_NAME = "Automation FC";
 		public static final String EMAIL = "automationfc@gmail.com";
