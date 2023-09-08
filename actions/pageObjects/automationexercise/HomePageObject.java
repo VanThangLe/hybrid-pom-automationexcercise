@@ -18,7 +18,12 @@ public class HomePageObject extends BasePage {
 	}
 	
 	public boolean isTitleTextDisplayed(String textValue) {
-		waitForElementVisible(driver, HomePageUI.TEXT_XPATH, textValue);
-		return isElementDisplayed(driver, HomePageUI.TEXT_XPATH, textValue);
+		waitForElementVisible(driver, HomePageUI.TITLE_TEXT, textValue);
+		return isElementDisplayed(driver, HomePageUI.TITLE_TEXT, textValue);
+	}
+
+	public void addRecommendProducts(String recommendProductIndex) {
+		waitForElementClickAble(driver, HomePageUI.RECOMMEND_ADD_TO_CART, recommendProductIndex);
+		clickToElement(driver, HomePageUI.RECOMMEND_ADD_TO_CART, recommendProductIndex);
 	}
 }

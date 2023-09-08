@@ -33,13 +33,15 @@ public class TestCase_22 extends BaseTest {
 		verifyTrue(homePage.isTitleTextDisplayed(driver, "RECOMMENDED ITEMS"));
 		
 		log.info("Testcase_22 - Step 03: Click on 'Add To Cart' on Recommended product");
-		
+		homePage.addRecommendProducts("1");
 		
 		log.info("Testcase_22 - Step 04: Click on 'View Cart' button");
-		
+		homePage.getWindowHanle(driver);
+		homePage.clickToButtonByTitle(driver, "View Cart");
+		cartPage = PageGenerator.getCartPage(driver);
 		
 		log.info("Testcase_22 - Step 05: Verify that product is displayed in cart page");
-		
+		verifyTrue(cartPage.isTitleTextDisplayed(driver, "Shopping Cart"));
 	}
 	
 	@Parameters({ "browserName" })

@@ -618,6 +618,16 @@ public class BasePage {
 		return getElementText(driver, BasePageUI.PRODUCT_PRICE_IN_LIST, productIndex);
 	}
 	
+	public void clickToSubCategory(WebDriver driver, String category, String subCategory) {
+		waitForElementClickAble(driver, BasePageUI.SUB_CATEGORY, category, subCategory);
+		clickToElement(driver, BasePageUI.SUB_CATEGORY, category, subCategory);
+	}
+	
+	public void clickToBrands(WebDriver driver, String brand) {
+		waitForElementClickAble(driver, BasePageUI.BRANDS, brand);
+		clickToElement(driver, BasePageUI.BRANDS, brand);
+	}
+	
 	public void getWindowHanle(WebDriver driver) {
 		driver.getWindowHandle();
 	}

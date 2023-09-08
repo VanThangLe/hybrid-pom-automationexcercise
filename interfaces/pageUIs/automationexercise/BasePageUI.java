@@ -18,6 +18,8 @@ public class BasePageUI {
 	public static final String VIEW_PRODUCT_IN_LIST = "//div[@id='cartModal']/following-sibling::div[%s]//a[contains(text(),'View Product')]";
 	public static final String PRODUCT_NAME_IN_LIST = "//div[@id='cartModal']/following-sibling::div[%s]//div[@class='productinfo text-center']//p";
 	public static final String PRODUCT_PRICE_IN_LIST = "//div[@id='cartModal']/following-sibling::div[%s]//div[@class='productinfo text-center']//h2";
+	public static final String SUB_CATEGORY = "//div[@id='%s']//a[contains(text(),'%s')]";
+	public static final String BRANDS = "//a[@href='%s']";
 	
 	public static final String DELIVERY_ADDRESS = "//ul[@id='address_delivery']/li[%s]";
 	public static final String BILLING_ADDRESS = "//ul[@id='address_invoice']/li[%s]";

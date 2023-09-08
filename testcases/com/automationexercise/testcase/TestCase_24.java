@@ -59,37 +59,38 @@ public class TestCase_24 extends BaseTest {
 		verifyTrue(cartPage.isTitleTextDisplayed(driver, "Shopping Cart"));
 		
 		log.info("Testcase_24 - Step 04: Click Proceed To Checkout");
-		cartPage.getWindowHanle(driver);
 		cartPage.clickToButtonByTitle(driver, "Proceed To Checkout");
 		checkoutPage = PageGenerator.getCheckoutPage(driver);
 		
 		log.info("Testcase_24 - Step 05: Click 'Register / Login' button");
-		
+		checkoutPage.getWindowHanle(driver);
+		checkoutPage.clickToButtonByTitle(driver, "Register / Login");
+		signupLoginPage = PageGenerator.getSignupLoginPage(driver);
 		
 		log.info("Testcase_24 - Step 06: Fill all details in Signup and create account");
-		signupLoginPage.enterToTextboxByDataQA(driver, "signup-name", Data.Testcase_23.USER_NAME);
-		signupLoginPage.enterToTextboxByDataQA(driver, "signup-email", Data.Testcase_23.EMAIL);
+		signupLoginPage.enterToTextboxByDataQA(driver, "signup-name", Data.Testcase_14.USER_NAME);
+		signupLoginPage.enterToTextboxByDataQA(driver, "signup-email", Data.Testcase_14.EMAIL);
 		signupLoginPage.clickToButtonByDataQA(driver, "signup-button");
 		signupPage = PageGenerator.getSignupPage(driver);
 		
 		signupPage.clickToRadioButtonByID(driver, "uniform-id_gender1");
-		signupPage.enterToTextboxByDataQA(driver, "name", Data.Testcase_23.USER_NAME);
-		signupPage.enterToTextboxByDataQA(driver, "password", Data.Testcase_01.PASSWORD);
-		signupPage.selectItemInDropdownByName(driver, "days", Data.Testcase_01.DAY);
-		signupPage.selectItemInDropdownByName(driver, "months", Data.Testcase_01.MONTH);
-		signupPage.selectItemInDropdownByName(driver, "years", Data.Testcase_01.YEAR);
+		signupPage.enterToTextboxByDataQA(driver, "name", Data.Testcase_14.USER_NAME);
+		signupPage.enterToTextboxByDataQA(driver, "password", Data.Testcase_14.PASSWORD);
+		signupPage.selectItemInDropdownByName(driver, "days", Data.Testcase_14.DAY);
+		signupPage.selectItemInDropdownByName(driver, "months", Data.Testcase_14.MONTH);
+		signupPage.selectItemInDropdownByName(driver, "years", Data.Testcase_14.YEAR);
 		signupPage.clickToCheckboxByID(driver, "newsletter");
 		signupPage.clickToCheckboxByID(driver, "optin");
-		signupPage.enterToTextboxByDataQA(driver, "first_name", Data.Testcase_01.FIRST_NAME);
-		signupPage.enterToTextboxByDataQA(driver, "last_name", Data.Testcase_23.LAST_NAME);
-		signupPage.enterToTextboxByDataQA(driver, "company", Data.Testcase_01.COMPANY);
-		signupPage.enterToTextboxByDataQA(driver, "address", Data.Testcase_01.ADDRESS);
-		signupPage.enterToTextboxByDataQA(driver, "address2", Data.Testcase_01.ADDRESS2);
-		signupPage.selectItemInDropdownByName(driver, "country", Data.Testcase_01.COUNTRY);
-		signupPage.enterToTextboxByDataQA(driver, "state", Data.Testcase_01.STATE);
-		signupPage.enterToTextboxByDataQA(driver, "city", Data.Testcase_01.CITY);
-		signupPage.enterToTextboxByDataQA(driver, "zipcode", Data.Testcase_01.ZIPCODE);
-		signupPage.enterToTextboxByDataQA(driver, "mobile_number", Data.Testcase_01.MOBILE_NUMBER);
+		signupPage.enterToTextboxByDataQA(driver, "first_name", Data.Testcase_14.FIRST_NAME);
+		signupPage.enterToTextboxByDataQA(driver, "last_name", Data.Testcase_14.LAST_NAME);
+		signupPage.enterToTextboxByDataQA(driver, "company", Data.Testcase_14.COMPANY);
+		signupPage.enterToTextboxByDataQA(driver, "address", Data.Testcase_14.ADDRESS);
+		signupPage.enterToTextboxByDataQA(driver, "address2", Data.Testcase_14.ADDRESS2);
+		signupPage.selectItemInDropdownByName(driver, "country", Data.Testcase_14.COUNTRY);
+		signupPage.enterToTextboxByDataQA(driver, "state", Data.Testcase_14.STATE);
+		signupPage.enterToTextboxByDataQA(driver, "city", Data.Testcase_14.CITY);
+		signupPage.enterToTextboxByDataQA(driver, "zipcode", Data.Testcase_14.ZIPCODE);
+		signupPage.enterToTextboxByDataQA(driver, "mobile_number", Data.Testcase_14.MOBILE_NUMBER);
 		signupPage.clickToButtonByDataQA(driver, "create-account");
 		accountCreatedPage = PageGenerator.getAccountCreatedPage(driver);
 		
@@ -99,43 +100,67 @@ public class TestCase_24 extends BaseTest {
 		homePage = PageGenerator.getHomePage(driver);
 		
 		log.info("Testcase_24 - Step 08: Verify ' Logged in as username' at top");
-		verifyTrue(homePage.isTitleTextDisplayed(driver, "Logged in as " + Data.Testcase_23.USER_NAME));
+		verifyTrue(homePage.isTitleTextDisplayed(driver, "Logged in as " + Data.Testcase_14.USER_NAME));
 		
 		log.info("Testcase_24 - Step 09: Click 'Cart' button");
 		homePage.openMenuPage(driver, "Cart");
 		cartPage = PageGenerator.getCartPage(driver);
 		
 		log.info("Testcase_24 - Step 10: Click 'Proceed To Checkout' button");
-		cartPage.getWindowHanle(driver);
 		cartPage.clickToButtonByTitle(driver, "Proceed To Checkout");
 		checkoutPage = PageGenerator.getCheckoutPage(driver);
 		
 		log.info("Testcase_24 - Step 11: Verify Address Details and Review Your Order");
+		verifyEquals(checkoutPage.getDeliveryAddressValue(driver, "2"), Data.Testcase_14.FIRST_NAME + " " + Data.Testcase_14.LAST_NAME);
+		verifyEquals(checkoutPage.getDeliveryAddressValue(driver, "3"), Data.Testcase_14.COMPANY);
+		verifyEquals(checkoutPage.getDeliveryAddressValue(driver, "4"), Data.Testcase_14.ADDRESS);
+		verifyEquals(checkoutPage.getDeliveryAddressValue(driver, "5"), Data.Testcase_14.ADDRESS2);
+		verifyEquals(checkoutPage.getDeliveryAddressValue(driver, "6"), Data.Testcase_14.CITY + " " + Data.Testcase_14.STATE + " " + Data.Testcase_14.ZIPCODE);
+		verifyEquals(checkoutPage.getDeliveryAddressValue(driver, "7"), Data.Testcase_14.COUNTRY);
+		verifyEquals(checkoutPage.getDeliveryAddressValue(driver, "8"), Data.Testcase_14.MOBILE_NUMBER);
 		
+		verifyEquals(checkoutPage.getBillingAddressValue(driver, "2"), Data.Testcase_14.FIRST_NAME + " " + Data.Testcase_14.LAST_NAME);
+		verifyEquals(checkoutPage.getBillingAddressValue(driver, "3"), Data.Testcase_14.COMPANY);
+		verifyEquals(checkoutPage.getBillingAddressValue(driver, "4"), Data.Testcase_14.ADDRESS);
+		verifyEquals(checkoutPage.getBillingAddressValue(driver, "5"), Data.Testcase_14.ADDRESS2);
+		verifyEquals(checkoutPage.getBillingAddressValue(driver, "6"), Data.Testcase_14.CITY + " " + Data.Testcase_14.STATE + " " + Data.Testcase_14.ZIPCODE);
+		verifyEquals(checkoutPage.getBillingAddressValue(driver, "7"), Data.Testcase_14.COUNTRY);
+		verifyEquals(checkoutPage.getBillingAddressValue(driver, "8"), Data.Testcase_14.MOBILE_NUMBER);
 		
 		log.info("Testcase_24 - Step 12: Enter description in comment text area and click 'Place Order'");
-		
+		checkoutPage.enterToTextareaByIDName(driver, "message", Data.Testcase_14.MESSAGE);
+		checkoutPage.clickToButtonByTitle(driver, "Place Order");
+		paymentPage = PageGenerator.getPaymentPage(driver);
 		
 		log.info("Testcase_24 - Step 13: Enter payment details: Name on Card, Card Number, CVC, Expiration date");
-		
+		paymentPage.enterToTextboxByDataQA(driver, "name-on-card", Data.Testcase_14.NAME_ON_CARD);
+		paymentPage.enterToTextboxByDataQA(driver, "card-number", Data.Testcase_14.CARD_NUMBER);
+		paymentPage.enterToTextboxByDataQA(driver, "cvc", Data.Testcase_14.CVC);
+		paymentPage.enterToTextboxByDataQA(driver, "expiry-month", Data.Testcase_14.EXPIRATION_MONTH);
+		paymentPage.enterToTextboxByDataQA(driver, "expiry-year", Data.Testcase_14.EXPIRATION_YEAR);
 		
 		log.info("Testcase_24 - Step 14: Click 'Pay and Confirm Order' button");
-		
+		paymentPage.clickToButtonByDataQA(driver, "pay-button");
 		
 		log.info("Testcase_24 - Step 15: Verify success message 'Your order has been placed successfully!'");
-		
+		verifyTrue(paymentPage.isTitleTextDisplayed(driver, "Your order has been placed successfully!"));
+		orderPlacedPage = PageGenerator.getOrderPlacedPage(driver);
 		
 		log.info("Testcase_24 - Step 16: Click 'Download Invoice' button and verify invoice is downloaded successfully.");
+		orderPlacedPage.clickToButtonByTitle(driver, "Download Invoice");
 		
 		
 		log.info("Testcase_24 - Step 17: Click 'Continue' button");
-		
+		orderPlacedPage.clickToButtonByDataQA(driver, "continue-button");
+		homePage = PageGenerator.getHomePage(driver);
 		
 		log.info("Testcase_24 - Step 18: Click 'Delete Account' button");
-		
+		homePage.openMenuPage(driver, "Delete Account");
+		deleteAccountPage = PageGenerator.getDeleteAccountPage(driver);
 		
 		log.info("Testcase_24 - Step 19: Verify 'ACCOUNT DELETED!' and click 'Continue' button");
-		
+		verifyTrue(deleteAccountPage.isTitleTextDisplayed(driver, "ACCOUNT DELETED!"));
+		deleteAccountPage.clickToButtonByDataQA(driver, "continue-button");
 	}
 	
 	@Parameters({ "browserName" })

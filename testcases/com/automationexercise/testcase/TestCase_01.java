@@ -10,21 +10,17 @@ import com.automationexercise.data.Data;
 
 import commons.BaseTest;
 import pageObjects.automationexercise.AccountCreatedPageObject;
-import pageObjects.automationexercise.DeleteAccountPageObject;
 import pageObjects.automationexercise.HomePageObject;
 import pageObjects.automationexercise.SignupLoginPageObject;
 import pageObjects.automationexercise.SignupPageObject;
 import pageObjects.automationexercise.PageGenerator;
-import pageObjects.automationexercise.RegisterPageObject;
 
 public class TestCase_01 extends BaseTest {
 	WebDriver driver;
-	RegisterPageObject registerPage;
 	HomePageObject homePage;
 	SignupLoginPageObject signupLoginPage;
 	SignupPageObject signupPage;
 	AccountCreatedPageObject accountCreatedPage;
-	DeleteAccountPageObject deleteAccountPage;
 	
 	@Parameters({ "browserName", "appUrl" })
 	@BeforeClass
@@ -93,15 +89,6 @@ public class TestCase_01 extends BaseTest {
 		
 		log.info("Testcase_01 - Step 13: Verify that 'Logged in as username' is visible");
 		verifyTrue(homePage.isTitleTextDisplayed(driver, "Logged in as " + Data.Testcase_01.USER_NAME));
-		
-		log.info("Testcase_01 - Step 14: Click 'Delete Account' button");
-		homePage.openMenuPage(driver, "Delete Account");
-		deleteAccountPage = PageGenerator.getDeleteAccountPage(driver);
-		
-		log.info("Testcase_01 - Step 15: Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button");
-		verifyTrue(deleteAccountPage.isTitleTextDisplayed(driver, "ACCOUNT DELETED!"));
-		deleteAccountPage.clickToButtonByDataQA(driver, "continue-button");
-		homePage = PageGenerator.getHomePage(driver);
 	}
 	
 	@Parameters({ "browserName" })

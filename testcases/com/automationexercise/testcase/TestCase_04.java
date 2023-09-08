@@ -52,8 +52,6 @@ public class TestCase_04 extends BaseTest {
 		
 		log.info("Testcase_04 - Step 07: Verify that user is navigated to login page");
 		verifyTrue(signupLoginPage.isTitleTextDisplayed(driver, "Login to your account"));
-		signupLoginPage.openMenuPage(driver, "Home");
-		homePage = PageGenerator.getHomePage(driver);
 	}
 	
 	@Parameters({ "browserName" })

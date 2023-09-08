@@ -44,8 +44,6 @@ public class TestCase_05 extends BaseTest {
 		
 		log.info("Testcase_05 - Step 05: Verify error 'Email Address already exist!' is visible");
 		verifyTrue(signupLoginPage.isTitleTextDisplayed(driver, "Email Address already exist!"));
-		signupLoginPage.openMenuPage(driver, "Home");
-		homePage = PageGenerator.getHomePage(driver);
 	}
 	
 	@Parameters({ "browserName" })

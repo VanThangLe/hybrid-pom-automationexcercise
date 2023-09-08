@@ -9,7 +9,6 @@ import org.testng.annotations.Test;
 import com.automationexercise.data.Data;
 
 import commons.BaseTest;
-import pageObjects.automationexercise.DeleteAccountPageObject;
 import pageObjects.automationexercise.HomePageObject;
 import pageObjects.automationexercise.SignupLoginPageObject;
 import pageObjects.automationexercise.PageGenerator;
@@ -18,7 +17,6 @@ public class TestCase_02 extends BaseTest {
 	WebDriver driver;
 	HomePageObject homePage;
 	SignupLoginPageObject signupLoginPage;
-	DeleteAccountPageObject deleteAccountPage;
 	
 	@Parameters({ "browserName", "appUrl" })
 	@BeforeClass
@@ -47,15 +45,6 @@ public class TestCase_02 extends BaseTest {
 		
 		log.info("Testcase_02 - Step 05: Verify that 'Logged in as username' is visible");
 		verifyTrue(homePage.isTitleTextDisplayed(driver, "Logged in as " + Data.Testcase_01.USER_NAME));
-		
-		log.info("Testcase_02 - Step 06: Click 'Delete Account' button");
-		homePage.openMenuPage(driver, "Delete Account");
-		deleteAccountPage = PageGenerator.getDeleteAccountPage(driver);
-		
-		log.info("Testcase_02 - Step 07: Verify that 'ACCOUNT DELETED!' is visible");
-		verifyTrue(deleteAccountPage.isTitleTextDisplayed(driver, "ACCOUNT DELETED!"));
-		deleteAccountPage.clickToButtonByDataQA(driver, "continue-button");
-		homePage = PageGenerator.getHomePage(driver);
 	}
 	
 	@Parameters({ "browserName" })

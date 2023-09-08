@@ -44,8 +44,6 @@ public class TestCase_03 extends BaseTest {
 		
 		log.info("Testcase_03 - Step 05: Verify error 'Your email or password is incorrect!' is visible");
 		verifyTrue(signupLoginPage.isTitleTextDisplayed(driver, "Your email or password is incorrect!"));
-		signupLoginPage.openMenuPage(driver, "Home");
-		homePage = PageGenerator.getHomePage(driver);
 	}
 	
 	@Parameters({ "browserName" })

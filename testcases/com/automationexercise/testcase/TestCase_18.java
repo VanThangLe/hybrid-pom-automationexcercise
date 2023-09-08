@@ -27,19 +27,20 @@ public class TestCase_18 extends BaseTest {
 	@Test(description = "Test Case 18: View Category Products")
 	public void Testcase_18() {
 		log.info("Testcase_18 - Step 01: Click on 'Women' category");
-		
+		homePage.clickToButtonByIDName(driver, "Women");
 		
 		log.info("Testcase_18 - Step 02: Click on any category link under 'Women' category, for example: Dress");
-		
+		homePage.clickToSubCategory(driver, "Women", "Dress");
+		productsPage = PageGenerator.getProductsPage(driver);
 		
 		log.info("Testcase_18 - Step 03: Verify that category page is displayed and confirm text 'WOMEN - DRESS PRODUCTS'");
-		
+		verifyTrue(productsPage.isTitleTextDisplayed(driver, "Women - Dress Products"));
 		
 		log.info("Testcase_18 - Step 04: On left side bar, click on any sub-category link of 'Men' category");
-		
+		productsPage.clickToSubCategory(driver, "Men", "Tshirts");
 		
 		log.info("Testcase_18 - Step 05: Verify that user is navigated to that category page");
-		
+		verifyTrue(productsPage.isTitleTextDisplayed(driver, "Men - Tshirts Products"));
 	}
 	
 	@Parameters({ "browserName" })

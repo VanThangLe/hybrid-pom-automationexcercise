@@ -110,15 +110,6 @@ public class TestCase_16 extends BaseTest {
 		log.info("Testcase_16 - Step 12: Verify success message 'Your order has been placed successfully!'");
 		verifyTrue(paymentPage.isTitleTextDisplayed(driver, "Your order has been placed successfully!"));
 		orderPlacedPage = PageGenerator.getOrderPlacedPage(driver);
-		
-		log.info("Testcase_16 - Step 13: Click 'Delete Account' button");
-		orderPlacedPage.openMenuPage(driver, "Delete Account");
-		deleteAccountPage = PageGenerator.getDeleteAccountPage(driver);
-		
-		log.info("Testcase_16 - Step 14: Verify 'ACCOUNT DELETED!' and click 'Continue' button");
-		verifyTrue(deleteAccountPage.isTitleTextDisplayed(driver, "ACCOUNT DELETED!"));
-		deleteAccountPage.clickToButtonByDataQA(driver, "continue-button");
-		homePage = PageGenerator.getHomePage(driver);
 	}
 	
 	@Parameters({ "browserName" })

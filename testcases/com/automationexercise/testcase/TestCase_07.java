@@ -32,8 +32,6 @@ public class TestCase_07 extends BaseTest {
 		
 		log.info("Testcase_07 - Step 02: Verify user is navigated to test cases page successfully");
 		verifyTrue(testCasesPage.isTitleTextDisplayed(driver, "Test Cases"));
-		testCasesPage.openMenuPage(driver, "Home");
-		homePage = PageGenerator.getHomePage(driver);
 	}
 	
 	@Parameters({ "browserName" })

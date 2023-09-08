@@ -27,22 +27,23 @@ public class TestCase_19 extends BaseTest {
 	@Test(description = "Test Case 19: View & Cart Brand Products")
 	public void Testcase_19() {
 		log.info("Testcase_19 - Step 01: Click on 'Products' button");
-		
+		homePage.openMenuPage(driver, "Products");
+		productsPage = PageGenerator.getProductsPage(driver);
 		
 		log.info("Testcase_19 - Step 02: Verify that Brands are visible on left side bar");
-		
+		verifyTrue(productsPage.isTitleTextDisplayed(driver, "Brands"));
 		
 		log.info("Testcase_19 - Step 03: Click on any brand name");
-		
+		productsPage.clickToBrands(driver, "/brand_products/Polo");
 		
 		log.info("Testcase_19 - Step 04: Verify that user is navigated to brand page and brand products are displayed");
-		
+		productsPage.isTitleTextDisplayed(driver, "Brand - Polo Products");
 		
 		log.info("Testcase_19 - Step 05: On left side bar, click on any other brand link");
-		
+		productsPage.clickToBrands(driver, "/brand_products/H&M");
 		
 		log.info("Testcase_19 - Step 06: Verify that user is navigated to that brand page and can see products");
-		
+		productsPage.isTitleTextDisplayed(driver, "Brand - H&M Products");
 	}
 	
 	@Parameters({ "browserName" })
